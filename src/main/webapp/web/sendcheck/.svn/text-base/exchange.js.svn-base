@@ -1,0 +1,477 @@
+Ext.onReady(function() {
+	var addOrUpdate = 0;// 定义新增还是修改的标示
+	// 时间转换
+	function dateFormat(val) {
+		if (val.length == 8) {
+			return val.substring(0, 4) + "-" + val.substring(4, 6) + "-" + val.substring(6, 8);
+		} else {
+			return val;
+		}
+	}
+	// 积分状态
+	function exchangeStatus(val) {
+		if (val == 01)
+			return '已兑换，待配送';
+		else if (val == 02)
+			return '已配送';
+		else
+			return "";
+
+	}
+	//配送状态
+	var statusStore = Ext.create('Ext.data.Store', {
+		model : 'ComboboxData',
+		data : [ {
+			'value' : '01',
+			'content' : '已兑换，待配送'
+		}, {
+			'value' : '02',
+			'content' : '已配送'
+		}]
+	})
+	Ext.define('PointExchange', {
+		extend : 'Ext.data.Model',
+		fields : [ {
+			name : 'exchange_id',
+			type : 'string'
+		}, {
+			name : 'user_id',
+			type : 'string'
+		}, {
+			name : 'goods_id',
+			type : 'string'
+		}, {
+			name : 'goods_name',
+			type : 'string'
+		}, {
+			name : 'exchange_date',
+			type : 'string'
+		}, {
+			name : 'exchange_point',
+			type : 'string'
+		}, {
+			name : 'deli_address',
+			type : 'string'
+		}, {
+			name : 'deli_contacts',
+			type : 'string'
+		}, {
+			name : 'deli_mobile',
+			type : 'string'
+		}, {
+			name : 'status',
+			type : 'string'
+		} ]
+	});
+
+	var exchangeStore = Ext.create('Ext.data.Store', {
+		model : 'PointExchange',
+		pageSize : pagelimit,
+		proxy : {
+			type : 'ajax',
+			url : basePath + '/point/exchange/search.do',
+			actionMethods : {
+				read : "POST"
+			},
+			reader : {
+				rootProperty : 'root'
+			}
+		},
+		autoLoad : false,
+		listeners : {
+			beforeload : function(store) {
+				Ext.apply(store.proxy.extraParams, {
+					goods_name : Ext.getCmp('txtGoods_name').getValue(),
+					deli_mobile : Ext.getCmp('txtDeli_mobile').getValue(),
+					status : Ext.getCmp('cmbStatus').getValue()
+				});
+			}
+		}
+	});
+
+	var selExchangeModel = Ext.create('Ext.selection.CheckboxModel', {
+		mode : 'SINGLE'
+	});
+
+	var exchangeTb = Ext.create('Ext.toolbar.Toolbar', {
+		layout : {
+			overflowHandler : 'Menu'
+		},
+		items : ['商品名称', {
+			xtype : 'textfield',
+			width : 190,
+			id : 'txtGoods_name'
+		}, '联系人电话', {
+			xtype : 'textfield',
+			width : 100,
+			id : 'txtDeli_mobile'
+		}, '状态', {
+			id : 'cmbStatus',
+			xtype : 'combobox',
+			valueField : 'value',
+			displayField : 'content',
+			store : statusStore,
+			queryMode : 'local',
+			width : 150,
+			typeAhead : true,
+			editable : false
+		},{
+			xtype : 'button',
+			glyph : glyphSearch,
+			text : '查询',
+			handler : function() {
+				searchExchange();
+			}
+		}, {
+			xtype : 'button',
+			glyph : glyphClear,
+			text : '清空',
+			handler : function() {
+				clearExchange();
+			}
+		}]
+	});
+
+	var exchangeGrid = Ext.create('Ext.grid.Panel', {
+		title : '积分兑换表列表',
+		frame : true,
+		glyph : glyphGrid,
+		width : '100%',
+		height : pageH,
+		collapsible : true,// 表头缩回按钮
+		store : exchangeStore,
+		selModel : selExchangeModel,
+		renderTo : Ext.getBody(),
+		columns : [ {
+			xtype : 'rownumberer',
+			width : 40
+		}, {
+			text : '商品名称',
+			dataIndex : 'goods_name',
+			width : 180,
+			align : 'center',
+			sortable : false
+		}, {
+			text : '兑换时间',
+			dataIndex : 'exchange_date',
+			width : 160,
+			align : 'center',
+			renderer:datesFormat,
+			sortable : false
+		}, {
+			text : '消费积分',
+			dataIndex : 'exchange_point',
+			width : 100,
+			align : 'center',
+			sortable : false
+		}, {
+			text : '配送地址',
+			dataIndex : 'deli_address',
+			width : 190,
+			align : 'center',
+			sortable : false
+		}, {
+			text : '联系人',
+			dataIndex : 'deli_contacts',
+			width : 100,
+			align : 'center',
+			sortable : false
+		}, {
+			text : '联系人电话',
+			dataIndex : 'deli_mobile',
+			width : 100,
+			align : 'center',
+			sortable : false
+		}, {
+			text : '状态',
+			dataIndex : 'status',
+			width : 140,
+			align : 'center',
+			sortable : false,
+			renderer : exchangeStatus,
+		}, {
+			xtype : 'actioncolumn',
+			text : '操作',
+			width : 120,
+			align : 'center',
+			items : [{
+				text : '查看',
+				handler : function(grid, rowIndex, colIndex) {
+					setGridSelect(grid, rowIndex);
+					viewExchange(grid.getStore().getAt(rowIndex))
+				}
+			},{
+				text : '确认发货',
+				getClass : function(v, meta, record) {
+						if (record.data.status == '01')
+							return '';
+						else
+							return 'x-hidden';
+				},
+				handler : function(grid, rowIndex, colIndex) {
+				affirmExchange(exchangeGrid.getStore().getAt(rowIndex));
+					}
+			}]
+		} ],
+		viewConfig : {
+			stripeRows : true,
+			enableTextSelection : true
+		},
+		tbar : exchangeTb,
+		bbar : Ext.create('Ext.PagingToolbar', {
+			store : exchangeStore,
+			displayInfo : true
+		})
+	});
+	var exchangeForm = new Ext.create("Ext.form.Panel", {
+		id : 'exchangeForm',
+		//frame : true,
+		border : true,
+		width : '100%',
+		height : 420,
+		bodyPadding : 4,
+		layout : 'column',
+		buttonAlign : 'center',
+		defaultType : 'textfield',
+		waitTitle : '正在提交中',
+		fieldDefaults : {
+			labelAlign : 'right',
+			labelWidth : 120,
+			anchor : '100%',
+			margin : '0 0 5 0',
+			msgTarget : 'qtip',
+			columnWidth : 1
+		},
+		items : [ {
+			fieldLabel : '兑换id',
+			xtype : 'textfield',
+			width : 100,
+			name : 'exchange_id',
+			maxLength : 32
+		}, {
+			fieldLabel : '会员id',
+			xtype : 'textfield',
+			width : 100,
+			name : 'user_id',
+			maxLength : 10
+		}, {
+			fieldLabel : '商品id',
+			xtype : 'textfield',
+			width : 100,
+			name : 'goods_id',
+			maxLength : 10
+		}, {
+			fieldLabel : '商品名称',
+			xtype : 'textfield',
+			width : 100,
+			name : 'goods_name',
+			maxLength : 100
+		}, {
+			fieldLabel : '兑换时间',
+			xtype : 'textfield',
+			width : 100,
+			name : 'exchange_date',
+			maxLength : 12
+		}, {
+			fieldLabel : '消费积分',
+			xtype : 'textfield',
+			width : 100,
+			name : 'exchange_point',
+			maxLength : 10
+		}, {
+			fieldLabel : '配送地址',
+			xtype : 'textfield',
+			width : 100,
+			name : 'deli_address',
+			maxLength : 200
+		}, {
+			fieldLabel : '联系人',
+			xtype : 'textfield',
+			width : 100,
+			name : 'deli_contacts',
+			maxLength : 20
+		}, {
+			fieldLabel : '联系人电话',
+			xtype : 'textfield',
+			width : 100,
+			name : 'deli_mobile',
+			maxLength : 11
+		}, {
+			fieldLabel : '状态',
+			xtype : 'textfield',
+			width : 100,
+			name : 'status',
+			maxLength : 2
+		} ],
+		buttons : [ {
+			text : '保存',
+			glyph : glyphSave,
+			handler : saveExchange
+		}, {
+			text : '返回',
+			glyph : glyphBack,
+			handler : function() {
+				exchangeWin.hide();
+			}
+		} ]
+	});
+
+	var exchangeWin = new Ext.Window({
+		width : 800,
+		height : 460,
+		glyph : glyphWindow,
+		title : '新增/修改',
+		modal : true,
+		closeAction : 'hide',
+		padding : 4,
+		items : [ exchangeForm ]
+	});
+
+	var exchangeViewForm = new Ext.create("Ext.form.Panel", {
+		id : 'exchangeViewForm',
+		width : '100%',
+		height : 320,
+		bodyPadding : 4,
+		layout : 'column',
+		defaultType : 'textfield',
+		buttonAlign : 'center',
+		fieldDefaults : {
+			labelAlign : 'right',
+			labelWidth : 90,
+			anchor : '100%',
+			margin : '0 0 5 0',
+			msgTarget : 'qtip',
+			columnWidth : 1
+		},
+		items : [ {
+			fieldLabel : '商品名称',
+			name : 'goods_name'			
+		}, {
+			fieldLabel : '兑换时间',		
+			name : 'exchange_date'
+		}, {
+			fieldLabel : '消费积分',
+			name : 'exchange_point'
+		}, {
+			fieldLabel : '配送地址',
+			name : 'deli_address'
+		}, {
+			fieldLabel : '联系人',
+			name : 'deli_contacts'
+		}, {
+			fieldLabel : '联系人电话',
+			name : 'deli_mobile'
+		}, {
+			fieldLabel : '状态',
+			name : 'status',
+			renderer : exchangeStatus
+		} ],
+		buttons : [ {
+			text : '返回',
+			glyph : glyphBack,
+			handler : function() {
+				exchangeViewWin.hide();
+			}
+		} ]
+	});
+	var exchangeViewWin = new Ext.Window({
+		width : 600,
+		height : 360,
+		glyph : glyphWindow,
+		title : '『查看积分兑换表』',
+		modal : true,
+		closeAction : 'hide',
+		padding : 4,
+		items : [ exchangeViewForm ]
+	});
+
+	//searchExchange();
+	// 查询
+	function searchExchange() {
+		exchangeStore.loadPage(1);
+	}
+	// 选择性条件清空
+	function clearExchange() {
+		Ext.getCmp('txtGoods_name').setValue('');
+		Ext.getCmp('cmbStatus').setValue('');
+		Ext.getCmp('txtDeli_mobile').setValue('');
+
+	}
+
+	// 保存
+	function saveExchange() {
+		var url = "";
+		if (addOrUpdate == 1)
+			url = basePath + '/point/exchange/add.do';
+		else if (addOrUpdate == 2)
+			url = basePath + '/point/exchange/update.do';
+		if (exchangeForm.getForm().isValid()) {
+			exchangeForm.getForm().submit({
+				clientValidation : true,
+				url : url,
+				success : function(form, action) {
+					exchangeWin.hide();
+					exchangeStore.reload();
+				},
+				failure : function(form, action) {
+					Ext.Msg.alert('操作提示', action.result.msgText)
+				}
+			});
+		}
+	}
+
+
+	// 查看
+	function viewExchange(record) {
+		exchangeViewForm.getForm().reset();
+		exchangeViewForm.getForm().loadRecord(record);
+		var status="";
+		if(record.get('status')=='01'){
+			status="已兑换，待配送";
+		}else if(record.get('status')=='02'){
+			status="已配送";
+		}else{
+			status="";
+		}
+		exchangeViewForm.getForm().findField("status").setValue(status);
+		var exchange_date = record.get('exchange_date');
+		var date = exchange_date.substring(0,16);
+		exchangeViewForm.getForm().findField("exchange_date").setValue(date);
+		setFormReadOnly(exchangeViewForm, true);
+		exchangeViewWin.show();
+	}
+	//确认发货
+	function affirmExchange() {
+		var exchangeRecord = exchangeGrid.getSelectionModel().getLastSelected();
+		var exchange_id = exchangeRecord.get('exchange_id');
+		Ext.Msg.confirm('操作提示', '是否确认发货', function(btn, text) {
+			if (btn == 'yes') {
+				showMask();
+				Ext.Ajax.request({
+					url : basePath + '/point/exchange/saveStatus.do',
+					params : {
+						exchange_id : exchange_id
+					},
+					success : function(response) {
+						unMask();
+						var result = Ext.decode(response.responseText);
+						if (result.success) {
+							Ext.Msg.alert('操作提示', result.msgText, function() {
+								exchangeStore.reload();
+							});
+						} else {
+							Ext.Msg.alert('操作提示', result.msgText, function() {
+								exchangeStore.reload();
+							});
+						}
+					}
+				});
+			}
+		})
+	}
+	// 自适应大小
+	Ext.GlobalEvents.on('resize', function() {
+		exchangeGrid.getView().refresh();
+		exchangeGrid.setWidth('100%')
+	})
+});

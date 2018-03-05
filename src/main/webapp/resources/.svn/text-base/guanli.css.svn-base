@@ -1,0 +1,101 @@
+@charset "utf-8";
+*{ padding:0px; margin:0px; }
+body{ font-family:Arial,Verdana,"宋体"; font-size:12px; color:#111; background:#FFF; height:100%; width:auto;}
+img{border:0px;}
+em,i,b{font-style:normal;}
+ol,ul{list-style:none;}
+a{ color:#222; text-decoration:none; }
+a:hover{ color:#F00; text-decoration:underline; }
+
+.font_star { color:#FF0000; padding-left:2px; font-weight:bold;} /*必填项*/
+.font_foot { color:#FFF; text-align:center;}
+
+table td{ height:24px; } /*全局*/
+.tab_nav,.tab_btn,.tab_qry,.tab_page,.tab_data,.tab_open,.tab_msg{ width:100%; border-collapse:collapse; float:right;}
+.tab_nav,.tab_btn,.tab_qry,.tab_page{border:1px solid #bbcdd7; background-image: url(data_nav1.jpg);}
+
+.tab_nav{ margin-bottom:2px;} /*文字导航*/
+.tab_nav td{ padding-left:30px; text-align:left; }
+
+.tab_btn{ margin-bottom:2px; } /*按钮导航*/
+.tab_btn td{ padding-right:30px; text-align:right;}
+.tab_btn td a{ color:#000; background:url(data_btn1.gif) no-repeat; padding:4px 14px; line-height:21px; text-align:center; margin:0 12px 0 0;}
+.tab_btn td a:hover{ color:#000; text-decoration:underline;}
+
+.tab_qry{ margin-bottom:2px;} /*查询条件*/
+.tab_qry td a{ color:#000; background:url(data_btn1.gif) no-repeat; padding:4px 14px; line-height:21px; text-align:left; margin:0 12px 0 0;}
+.tab_qry td a:hover{ color:#000; text-decoration:underline;}
+
+.tab_page{ margin-top:2px; text-align:center; } /*分页条*/
+.tab_page td a{ color:#3366FF; text-decoration:none; }
+.tab_page td a:hover{ color:#F00; text-decoration:underline;}
+
+.tab_data{ border:1px solid #999; background-color:#def3fc;}
+.tab_data th{ border:1px solid #a8d7f3; background-color:#7799b2; height:28px; color:#FFF; text-align:center;} /*数据列表*/
+.tab_data td{ border:1px solid #a8d7f3; text-align:center;}
+.tab_data td a{ color:#3366FF; text-decoration:none; margin:0 5px 0 0;}
+.tab_data td a:hover{ color:#F00; text-decoration:underline;}
+
+.tab_open{ border:1px solid #999; background-color:#def3fc;}
+.tab_open td{ border:1px solid #a8d7f3; padding-left:5px; background-color: #f2f9ff;} /*添加修改页面*/
+.tab_open input{ margin-right:5px;}
+
+.tab_msg{ border:1px solid #999; background-color:#def3fc;} /*提示文字*/
+.tab_msg td{ padding-left:20px; height:28px; }
+
+table tr.altrow{ background-color:#FFF;}
+
+.tab_ifr3 td{ padding:0; border:0;} /*iframe上传组件*/
+
+.top1{ float:left; width:100%; background-image:url(data_nav5.jpg); background-repeat:repeat-x; color:#FFFFFF; font-size:13px; line-height:42px;}
+.top_left{ float:left; padding-left:20px;}
+.top_right1{ float:right; width:340px;}
+
+.top_left a{ color:#FFF; text-decoration:none; margin:0 10px 0 10px;}
+.top_left a:hover{ color:#FF6600; text-decoration:none;}
+.top_right1 a{ color:#FFF; text-decoration:none; margin:0 10px 0 10px;}
+.top_right1 a:hover{ color:#FF6600; text-decoration:none;}
+
+#headk{
+	width: auto;
+	height: 74px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	background-image: url(guanli_02.jpg);
+	background-repeat:repeat-x;
+}
+.head_bg{
+	float:left;
+	width:100%;
+	height: 74px;
+	overflow: visible;
+	visibility: visible;
+	background-image: url(guanli_01.jpg);
+	background-repeat: no-repeat;
+}
+.head_right{ float:right; padding-top:50px; padding-right:30px; text-align:right; color:#FFF;}
+
+.home_box1{ float:left; width:99.8%; background-color:#def3fc; padding-top:10px; padding-bottom:10px; font-size:14px; border:1px solid #999;}
+.home_b01{ float:left; width:100%; background:url(home_bg5.jpg) repeat-x; height:28px; color:#FFF;}
+.home_b01 span{ float:left; padding-top:8px; padding-left:32px;}
+.home_b03{ float:left; width:100%; padding-top:8px; text-indent:10px;}
+.home_b03 li{ float:left; width:100%; overflow:hidden; line-height:26px; color:#666;}
+/**对账结算*/
+.chek_btn{width:30px;height:15px;background:url(magnifier.png) no-repeat;border:0px;cursor:pointer;}
+.date_sel{cursor:pointer;color:#666666;width:85px}
+.number_edit_box{width:80px;color:#666666}
+.edit_box{width:180px;color:#666666}
+.cross{background:url(bnk_channel.png) no-repeat;width:138px;}
+.hand{cursor:pointer;}
+/*多选的层样式**/
+.div_tab_data{ border:1px solid #a8d7f3; background-color:#def3fc;}
+.div_tab_data th{ border:1px solid #a8d7f3; background-color:#7799b2; height:26px; color:#FFF; text-align:center;} /*数据列表*/
+.div_tab_data td{ border:1px solid #a8d7f3; text-align:left;}
+.div_tab_data td a{ color:#3366FF; text-decoration:none; margin:0 5px 0 0;}
+.div_tab_data td a:hover{ color:#F00; text-decoration:underline;}
+/**滚动框样式*/
+.scroll_box{width:80%; height:23px;line-height:23px; border:#bbb 0px solid;cursor: pointer; overflow:hidden;} 
+.scroll_box ul{margin:0; padding:0} 
+.scroll_box li{height:23px; line-height:23px;text-align:center; list-style-type:none;} 

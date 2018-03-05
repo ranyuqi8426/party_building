@@ -1,0 +1,405 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	font-family: Helvetica, Arial,"Microsoft YaHei","黑体","宋体",sans-serif;
+}
+/* global */
+.c1003{ 
+	/* default content 1003px */
+	width: 1003px;
+	height: 5%;
+	margin: 0 auto;
+}
+/* 登录页header */
+header .navbar{
+    border-radius:0;
+    min-height: 30px;
+    margin-bottom: 0;
+}
+header .navbar-nav{
+	height: 30px;
+}
+header .navbar-nav li a{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+header .navbar-nav .ccc{
+	color: #ccc !important;
+}
+header .logo{
+	float: left;
+}
+header .logmenu{
+	float: left;
+	height: 74px;
+}
+header .logmenu li{
+	width: 100px;
+	text-align: center;
+}
+header .logmenu li a{
+	line-height: 62px;
+	color: #888;
+	border-radius: 0;
+}
+header .logmenu li.active a{
+	color: #31b0d5 !important;
+	background-color:#fff !important;
+	border-bottom: 2px solid #31b0d5;
+}
+/*注册页header*/
+header .regmenu{
+	float: right;
+}
+header .regmenu li{
+	width: 100px;
+	text-align: center;
+}
+header .regmenu li a{
+	line-height: 60px;
+	color: #888;
+	border-radius: 0;
+}
+header .regmenu li.active a{
+	color: #31b0d5 !important;
+	background-color:#fff !important;
+	border-bottom: 2px solid #31b0d5;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    height: 90px;
+    position: absolute;
+    z-index: -20;
+}
+footer .copyrights {
+    background: #fff;	
+	margin:0 auto;
+	height:90px;
+	position:fixed;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	z-index: -15;
+	color: #a0a0a0;
+	padding: 10px;
+}
+footer .w600{
+	width: 600px;
+	margin: 0 auto;
+}
+footer .qr{
+	width: 50px;
+}
+footer .qr img{
+	width: 100%;
+}
+footer .row {
+	line-height: 25px;
+	text-align: center;
+}
+footer .col-md-3,
+footer .col-md-7{
+	border-left: 1px dashed #888;
+}
+footer .col-md-3:first-child{
+	border-left: 0;
+}
+.loginpg{
+	background: #fff;
+	margin: 0;
+	padding-top: 10px;
+}
+.loginpg .banner{
+	height: 370px;
+	background-image: url(../images/login_banner.png);
+}
+.loginpg .login{
+	min-height: 300px;
+	width: 300px;
+	background: rgba(0,0,0,0.6);
+	float: right;
+	margin-top: 35px;
+	margin-right: 150px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	color: #fff;
+}
+.loginpg .login .notice{
+	color: #ff3c3c;
+	margin-top: -15px;
+	margin-bottom: 5px;
+}
+.loginpg .loginput{
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+.loginpg .idcode{
+	height: 30px;
+	padding: 0;
+}
+.loginpg .input-group{
+	margin-bottom: 10px;
+}
+.loginpg .remember{
+	float: left;
+	margin: 0;
+}
+.loginpg .reg,
+.loginpg .forgot{
+	text-align: right;
+}
+.loginpg .forgot a{
+	color: #fff;
+}
+.loginpg .reg a{
+	color: #5bc0de;
+}
+.loginpg .loginbtn{
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.loginpg .news{
+	margin-top: 20px;
+}
+.loginpg .news .label{
+	font-size: 100%;	
+}
+.loginpg .login .loginnotice{
+	padding:0;
+	float: left;
+    margin-bottom:0;
+    line-height:1.3; 
+    border:0;
+}
+/* regedit */
+.regpage{
+	margin: 0;
+	background-color: #f5f5f5;
+}
+.regpage .c800{
+	width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+.regpage .userform{
+	width: 700px;
+	background-color: #fff;
+}
+.regpage .formhd{
+    text-align: center;
+    font-size: 1.5em;
+    padding-bottom: 30px;
+}
+.regpage .formhd .icon{
+	margin-right: 20px;
+	top: 5px;
+}
+.regpage .arrow-down {
+	margin: 0 auto;
+    width:0; 
+    height:0; 
+    border-left:20px solid transparent;
+    border-right:20px solid transparent;
+    border-top:20px solid #189fff;
+}
+.regpage .myform {
+	padding:30px;
+}
+.regpage .myform a{
+	color: #5bc0de;
+}
+.regpage .myform .pwds{
+	text-align: center;
+	color: #888;
+}
+.regpage .myform .pwds label{
+	padding-top: 0;
+	font-weight: normal;
+}
+.regpage .myform .pwds tr{
+	background-color: #eee;
+}
+.regpage .myform .pwds td{
+	width: 100px;
+}
+.regpage .myform .pwds td:first-child{
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+.regpage .myform .pwds td:last-child{
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+.regpage .regbtn{
+	width: 200px;
+	background-color: #189fff;
+	color: #fff;
+	border: 0;
+}
+.regpage .twobtn{
+	width: 90px;
+	background-color: #189fff;
+	color: #fff;
+	border: 0;
+}
+.regpage .idcode{
+	height: 30px;
+	padding: 0;
+}
+.regpage .regad{
+	width: 225px;
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+.regpage .copyinfo{
+	padding-top: 30px;
+	color: #888;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.myform .req{
+	padding-top: 7px;
+	width: 1px;
+	float: left;
+	color: red;
+}
+.regpage .col-tip3{
+	float: left;
+	margin-left: 10px;
+	width: 150px;
+	font-size: 12px;	
+}
+.regpage .tips{
+	padding-top: 9px;
+	font-size: 12px;	
+}
+.regpage .lt{
+	float: left;
+}
+.regpage .contentl{
+	padding-top: 100px;
+	padding-bottom: 40px;
+	padding-left: 40px;
+}
+.regpage .contentr{
+	padding-top: 50px;
+	padding-bottom: 40px;
+	padding-left: 100px;
+}
+.regpage .copyrights {
+    background: #323232;	
+	margin:0 auto;
+	height:100px;
+	color: #a0a0a0;
+	padding-top: 25px;
+}
+.regpage .w600{
+	width: 600px;
+	margin: 0 auto;
+}
+.regpage .qr{
+	width: 50px;
+}
+.regpage .qr img{
+	width: 100%;
+}
+.regpage .copyrights .row {
+	line-height: 25px;
+	text-align: center;
+}
+.regpage .copyrights .col-md-3,
+.regpage .copyrights .col-md-7{
+	border-left: 1px dashed #888;
+}
+.regpage .copyrights .col-md-3:first-child{
+	border-left: 0;
+}
+.regpage .loginplz{
+	padding-top:6px;
+}
+
+/* 成功失败 */
+.resultpg{
+	margin: 0;
+	padding: 0;
+	background: #f5f5f5;
+}
+.resultpg .c1003 {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #f9f9f9;
+}
+.resultpg .container{
+	width: 100%;
+	padding: 0;
+}
+.resultpg .container .row{
+	margin: 0;
+}
+.resultpg .white{
+	background: #fff;
+}
+.resultpg .seg{
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.resultpg .regad{
+	width: 750px;
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.resultpg .copyinfo{
+	color: #888;
+	text-align: center;
+}
+.status{
+	height: 380px;
+	background-image: url(../images/status-back.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+.statusicon{
+	margin-top: 100px;
+	margin-left: 120px;
+	width: 150px;
+}
+.statusicon img{
+	width: 100%;
+	height: 100%;
+}
+.statusmsg{
+	padding-left: 50px;
+	padding-top: 140px;
+	font-weight: bold;
+	font-size: 40px;
+}
+.statusbtn{
+	text-align: center;
+	padding-top: 50px;
+}
+.statusbtn button{
+	width: 150px;
+	margin-left: 50px;
+}
+.statusbtn button:first-child{
+	margin-left: 0;
+}
+.form-controlkqw {
+  display: block;
+  width: 160px !important;
+}
+.form-controldpl {
+  display: block;
+  width: 188px !important;
+}
+

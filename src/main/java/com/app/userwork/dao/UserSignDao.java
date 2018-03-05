@@ -7,9 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.app.information.model.information;
 import com.app.userwork.model.UserSign;
-import com.app.util.page.PageUtil;
 
 
 @Repository
@@ -48,5 +46,5 @@ public class UserSignDao {
 		return list;
 	}
 
-
+	
 }

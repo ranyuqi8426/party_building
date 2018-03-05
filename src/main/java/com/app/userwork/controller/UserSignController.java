@@ -22,6 +22,7 @@ public class UserSignController {
 	
 	@Autowired
 	private UserSignService userSignService;
+	
 
 
 	/**
@@ -76,8 +77,6 @@ public class UserSignController {
 		}
 		WebUtil.out(response, json);
 	}
-	
-
 	
 
 }

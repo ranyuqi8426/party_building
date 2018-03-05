@@ -1,0 +1,1634 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #f5f5f5;
+	font-family: Helvetica, Arial,"Microsoft YaHei","黑体","宋体",sans-serif;
+}
+/* global */
+.c1003{ 
+	/* default content 1003px */
+	width: 1003px;
+	height: 5%;
+	margin: 0 auto;
+}
+
+/* header */
+header .navbar{
+    border-radius:0;
+    min-height: 30px;
+    margin-bottom: 0;
+}
+header .navbar-nav{
+	height: 30px;
+}
+header .navbar-nav li a{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+header .navbar-nav .ccc{
+	color: #ccc !important;
+}
+header .logohd{
+	width: 100%;
+	background-color: #fff;
+}
+header .hd{
+	height: 200px;
+	background-image: url(../images/banner.png);
+}
+header .common{
+	height: 50px;
+	overflow: hidden;
+}
+header .hdindex{
+	height: 150px;
+	background-image: url(../images/banner.png);
+	background-position: 0 -50px;
+}
+header .mainmenu{
+	height: 50px;
+	background: rgba(255,255,255,0.5);
+}
+header .mainmenu .nav{
+	padding-top: 10px;
+}
+header .mainmenu .nav a{
+	color: #073e64;
+	transition:all 0.3s ease;
+	-moz-transition:all 0.3s ease; /* Firefox 4 */
+	-webkit-transition:all 0.3s ease; /* Safari and Chrome */
+	-o-transition:all 0.3s ease; /* Opera */
+}
+header .mainmenu .nav a:hover,
+header .mainmenu .nav a:visited{
+	background: #f1edff;
+}
+header .mainmenu .nav li.active{
+	background: #f1edff;
+}
+header .userinfo{
+	padding-top: 18px;
+	padding-left: 28px;
+}
+header .img-circle{
+	position:absolute;
+	z-index: 10;
+}
+header .iconcircle {
+	position: absolute;
+	margin-top: -10px;
+	margin-left: -10px;
+	width: 130px; 
+	height: 130px; 
+	background: rgba(255,255,255,0.5);
+	-moz-border-radius: 65px; 
+	-webkit-border-radius: 65px; 
+	border-radius: 65px; 
+} 
+header .userimg{
+	position:absolute;
+	z-index: 10;
+	width: 111px;
+	height: 111px;
+}
+header .userimg img{
+	width: 100%;
+	height: 100%;
+}
+header .username,
+header .useract,
+header .userlast
+{
+	position: absolute;
+	line-height: 30px;
+	color: #fff;
+}
+header .username {
+	font-size: 18px;
+	padding-left: 150px;
+	padding-top: 25px;
+}
+header .useract {
+	padding-left: 150px;
+	padding-top: 90px;
+}
+header .userlast {
+	padding-left: 300px;
+	padding-top: 90px;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    z-index: -20;
+}
+footer .lt{
+	float: left;
+}
+footer .copyrights {
+    background: #323232;	
+	margin:0 auto;
+	height:100px;
+	position:fixed;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	z-index: -15;
+	color: #a0a0a0;
+	padding-top: 25px;
+}
+footer .w600{
+	width: 600px;
+	margin: 0 auto;
+}
+footer .qr{
+	width: 50px;
+}
+footer .qr img{
+	width: 100%;
+}
+footer .row {
+	line-height: 25px;
+	text-align: center;
+}
+footer .col-md-3,
+footer .col-md-7{
+	border-left: 1px dashed #888;
+}
+footer .col-md-3:first-child{
+	border-left: 0;
+}
+
+/* page */
+/* 主页 */
+.page{
+	background: #eee;
+	margin: 0;
+}
+.page .c1003{
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #f9f9f9;
+}
+.page .col-md-10{
+	padding-right: 0;
+}
+.page a{
+	color: #269abc;
+}
+.page a:hover{
+	text-decoration: none;
+}
+.page .icon{
+	margin-right: 5px;
+}
+.page .content{
+	padding: 3px;
+	background: #ddd;
+	margin-bottom: 10px;
+}
+.page .container{
+	width: 100%;
+	padding: 0;
+}
+.page .container .row{
+	margin: 0;
+}
+.page .white{
+	background: #fff;
+}
+.page .seg{
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.page .white .col-md-12 .seg{
+	padding-left: 15px;
+	padding-right: 10px;
+}
+.page .bdleft{
+	border-left: 1px solid #ddd;
+}
+.page .bdtop{
+	border-top: 1px solid #ddd;
+}
+.page .finance{
+	text-align: center;
+}
+.page .actbt{
+	margin-left: 10px;
+}
+.page .ytbtns{
+	width: 100%;
+}
+.page .ytbtn{
+	width: 50%;
+}
+.page .dtl{
+	position: absolute;
+	bottom: 15px;
+	right: 20px;
+}
+.page .bdbottom {
+	border-bottom: 1px solid #ddd;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: -15px !important;
+	margin-right: -15px !important;
+}
+.page .divider{
+	height: 1px;
+	border-bottom: 1px solid #ddd;
+	margin-left: -15px !important;
+	margin-right: -15px !important;
+}
+.page .usertb{
+	margin-top: 20px;
+	background-color: rgba(255,255,255,0.5);
+}
+.page .record li{
+	float: left;
+	margin-right: 30px;
+	list-style-type:none;
+}
+.page .rec_t,.page .rec_s{
+	width: 20%;
+}
+.page .rec_n{
+	width: 40%;
+}
+.page .rec_c,.page .rec_d{
+	width: 10%;
+}
+.page .allrec{
+	text-align: right;
+}
+.page .advbottom{
+	width: 100%;
+}
+/* 内页 */
+.page .lt{
+	float: left;
+}
+.page .rt{
+	float: right;
+}
+.page .tlt{
+	text-align: left;
+}
+.page .trt{
+	text-align: right;
+}
+.page .menu{
+	margin-left: -15px;
+	margin-right: -15px;
+	background-color: #fff;
+}
+.page .menu .list-group-item {
+	border-radius: 0;
+}
+.page .menu .hd{
+	font-size: 16px;
+	font-weight: bold;
+}
+.page .qr{
+	margin-left: -15px;
+	margin-right: -15px;
+	margin-top: 5px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background-color: #fff;
+	text-align: center;
+}
+.page .qr .qrh1{
+	font-size: 20px;
+	color: #333;
+	font-weight: bold;
+}
+.page .qr .qrh2{
+	color: #888;
+	font-weight: bold;
+}
+.page .qr .qrh3{
+	color: #5bc0de;
+	font-weight: bold;
+}
+.page .qr img{
+	padding-bottom: 5px;
+}
+.page .que{
+	margin-left: -15px;
+	margin-right: -15px;
+	margin-top: 5px;
+	margin-bottom: 20px;
+	padding: 10px;
+	background-color: #fff;
+	color: #888;
+}
+.page .que .qh1{
+	color: #269abc;
+	font-weight: bold;
+}
+/* 账户管理 */
+.page .actable td{
+	border-top: 0;
+	color: #888;
+}
+.page .actable td:first-child{
+	width: 200px;
+	color: #000;
+}
+/**
+.page .actable td:last-child{
+	text-align: right;
+	padding-right: 20px;
+	color: #269abc;
+}*/
+.page .actable .label{
+	font-size: 14px;
+	margin-left: 15px;
+}
+/* 完善用户信息 */
+.page .myuser{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.page .myuser .userimg{
+	width: 150px;
+    height: 150px;
+    margin-bottom:10px;
+}
+.page .myuser .userimg:hover{
+	opacity: 0.8;
+}
+.page .myuser .userimg img{
+	width: 100%;
+	height: 100%;
+}
+.page .myuser .userimg .img-circle{
+	border: 5px dashed #ccc;
+	padding:2px;
+}
+.page .myuser .userimg p{
+	position: absolute;
+    top: 150px;
+    left: 50px;
+    font-weight: bold;
+    display:none;
+}
+.page .myuser .userimg:hover p{
+	display:block;
+}
+.page .myuser .userimg .uploadpic{
+	width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 20;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+    z-index: 2;
+}
+.page .myuser .completebtn{
+	width: 150px;
+}
+.page .avatar .modal-dialog{
+	width: 900px;
+}
+.page .avatar .avatarwp {
+ 	height: 364px;
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,.25);
+    background-color: #fcfcfc;
+    overflow: hidden;
+}
+.page .myuser .avatarwp{
+ 	height: 300px;
+    width: 100%;
+    margin-left: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,.25);
+    background-color: #fcfcfc;
+    overflow: hidden;
+}
+.page .avatarwp .avatarback{
+	max-width: 100%;
+	max-height: 100%;
+}
+.page .avatar .avatarpreview{
+	height: 184px;
+    width: 184px;
+    margin-top: 15px;
+	border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.page .avatar .avatarpreview:hover{
+	border-color: #ccf;
+    box-shadow: 0 0 5px rgba(0,0,0,.15);
+}
+.page .avatar .avatarpreview-sm{
+	height: 80px;
+    width: 80px;
+    margin-top: 15px;
+	border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.page .avatar .avatarpreview-sm:hover{
+	border-color: #ccf;
+    box-shadow: 0 0 5px rgba(0,0,0,.15);
+}
+.page .avatar .savebtn{
+	width: 200px;
+}
+.page .avatar .actbtn{
+	width: 40px;
+}
+.page .avatar .glyphicon{
+	padding-right: 10px;
+}
+.page .avatar .file {
+	color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    position: relative;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    overflow: hidden;
+    text-decoration: none;
+}
+.page .avatar .file input {
+    position: absolute;
+    height: 40px;
+    width: 100px;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    font-size:0;
+    cursor: pointer;
+}
+.page .avatar .file:hover {
+	color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+    text-decoration: none;
+}
+/* 我的银行卡 */
+.page .modal .myicon{
+	margin-right:7px;
+	color:#ff7800;
+}
+.page .modal .delinfo{
+	display: inline-block;
+    padding-left: 10px;
+    color: #5bc0de;
+}
+.page .modal .deltips{
+	color:#ff7800;
+}
+.page .mycard{
+	width: 200px;
+	height: 115px;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	padding-top: 5px;
+	text-align: center;
+	border:1px solid #ddd;
+	box-shadow: 0px 1px 1px #ddd;
+}
+.page .mycard .banktype{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.page .mycard .banktype img{
+	height: 100%;
+}
+.page .mycard .banknum{
+	text-align: left;
+	padding-left: 130px;
+	color: #337ab7;
+}
+.page .mycard .bankbtn{
+	height: 25px;
+	line-height: 25px;
+	padding-top: 0;
+	padding-bottom: 0;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+.page .newcard {
+	width: 200px;
+	height: 115px;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	padding-top: 35px;
+	border:1px dashed #ccc;
+	text-align: center;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+.page .newcard:hover{
+	background-color: #f0feff;
+	color: #337ab7;
+	cursor:pointer;
+}
+/* 我的银通卡 */
+.page .ytinfo .bankbtn{
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+.page .ytinfo{
+	padding-bottom: 20px;
+}
+.page .ytinfo .hd{
+	float: left;
+    line-height: 50px;
+    font-size: 1.5em;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+.page .ytinfo .statistics{
+    color: #337ab7;
+    font-size: 2.5em;
+    line-height: 50px;
+    padding-top: 20px;
+    display: block;
+}
+.page .ytinfo .ytye .btn{
+	width: 120px;
+	margin-right: 20px;
+	margin-top: 20px;
+}
+.page .ytrecharge .statistics{
+	color: #337ab7;
+    font-size: 1.5em;
+}
+.page .ytrecharge .stat{
+	display: inline-block;
+    color: #337ab7;
+    font-weight: bold;
+}
+.page .ytrecharge .info{
+	display: inline-block;
+    padding-left: 10px;
+    color: #5bc0de;
+}
+.page .ytrecharge .btn{
+	width: 150px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* 充值 */
+.page .recharge .statistics{
+	display: inline-block;
+	color: #337ab7;
+	font-size: 2em;
+}
+/*快捷支付*/
+.page .bankpay, .page .quickpay{
+	border-radius: 0px;
+	box-shadow: none;
+}
+.page .bankpay, .page .quickpay a{
+	text-decoration: none;
+}
+.page .quickpay .quickimg{
+	color: #337ab7;
+    font-size: 1.5em;
+}
+.page .quickpay .radio{
+	float: left;
+	margin-top: 0;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.page .quickpay{
+	display: block;
+}
+.page .addbk{
+	display: none;
+}
+.page .addbk .getvercode{
+	padding-top: 7px;
+	color: #5bc0de;
+}
+.page .quickpay .btn{
+	width: 150px;
+	margin-top: 20px;
+}
+.page .quickpay .info{
+	display: inline-block;
+	padding-top: 7px;
+	color: #5bc0de;
+}
+.page .quickpay .bankgroup{
+	overflow:auto;
+	padding-top: 20px;
+}
+.page .quickcard{
+	width: 250px;
+	height: 46px;
+	text-align: center;
+	border:1px solid #ddd;
+}
+.page .quickcard p{
+	display: inline-block;
+}
+.page .addquick{
+	width: 250px;
+	height: 46px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+	text-align: center;
+	line-height: 44px;
+	border:1px dashed #ccc;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+.page .addquick:hover{
+	background-color: #f0feff;
+	color: #337ab7;
+	cursor:pointer;
+}
+.page .addquick p{
+	display: inline-block;
+}
+/*网银支付*/
+.page .bankpay .radio{
+	float: left;
+	margin-top: 0;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.page .bankpay .bankcard{
+	width: 150px;
+	height: 46px;
+	text-align: center;
+	border:1px solid #ddd;
+}
+.page .bankpay .bankgroup{
+	overflow:auto;
+	padding-top: 20px;
+}
+.page .bankpay .btn{
+	width: 150px;
+}
+.page .bankpay .hd{
+	color: #337ab7;
+    font-size: 1.5em;
+}
+/* 提现 */
+.page .quickpay .hd,
+.page .transfer .hd{
+	color: #337ab7;
+    font-size: 1.5em;
+}
+.page .cash .tips{
+	color: red;
+    padding-top: 7px;
+}
+.page .cash .form-group{
+	overflow: auto;
+}
+.page .inline{
+	display:inline;
+}
+/* 转账 */
+.page .transfer .statistics{
+	display: inline-block;
+	color: #337ab7;
+	font-size: 2em;
+}
+.page .transfer .form-horizontal{
+	margin-top: 20px;
+}
+.page .transfer .transbtn{
+	width: 150px;
+}
+.page .transfer .tips{
+	padding-top: 7px;
+	color: red;
+}
+/* 交易记录 */
+.page .search{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.page .userrec{
+	background-color: rgba(255,255,255,0.5);
+	margin-bottom: 0;
+}
+.page .pageinput{
+	width: 50px;
+}
+/* 实名认证 */
+.page .cert .iddate{
+	width: 80px;
+}
+.page .cert .idpic{
+	padding-top: 7px;
+}
+.page .cert .ch{
+	padding-top: 7px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.page .certbtn{
+	width: 150px;
+}
+.page .cert .uploadpic{
+	width: 180px;
+	height: 110px;
+	border: 1px solid #ddd;
+	background-color: #eee;
+	color: #888;
+	text-align: center;
+}
+.page .cert .uploaddemo{
+	width: 180px;
+	height: 110px;
+}
+.page .cert .uploadpic .sqr{
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5px;
+	height: 30px;
+	width: 30px;
+	border: 1px dashed #888;
+	text-align: center;
+	line-height: 30px;
+}
+.page .cert .uploadpic input{
+	width: 180px;
+	height: 110px;
+	position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+    z-index: 2;
+}
+.page .cert .uploaddemo img{
+	max-width:100%;
+}
+.page .cert .tips{
+	padding-top: 7px;
+	color: #888;
+}
+.page .certinfo a{
+	color: #5bc0de;
+	text-decoration: none;
+}
+.page .cert .certable td{
+	border-top: 0;
+	color: #888;
+}
+.page .cert .certable td:first-child{
+	width: 200px;
+	color: #000;
+}
+.page .cert .certable .label{
+	font-size: 14px;
+	margin-left: 15px;
+}
+.page .cert .subidinfo{
+	text-align: center;
+}
+.page .cert .subidinfo img{
+	padding-bottom: 10px;
+}
+/* 积分查询 */
+.page .point .rt{
+	float: right;
+}
+.page .point .lt{
+	float: left;
+}
+.page .point .level ul{
+	list-style: none;
+	overflow: auto;
+}
+.page .point .level li{
+	float: left;
+    margin-right: 24px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.page .point .level .ptlv{
+	margin-top: 10px;
+	width: 60px;
+}
+.page .point .level .mylv{
+	width: 80px;
+}
+.page .point .level img{
+	width: 100%;
+}
+.page .point .level{
+	overflow: auto;
+}
+.page .point .levelinfo{
+	padding: 15px;
+}
+.page .point .levelinfo .hd{
+	font-weight: bold;
+	float: left;
+}
+.page .point .levelinfo span{
+	font-weight: normal;
+	color: #888;
+}
+.page .point .levelinfo .progress{
+	float: left;
+    width: 114px;
+    height: 15px;
+    text-align: center;
+    color: #000;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+.page .point .levelinfo .progress .progress-bar-point{
+	background-color: #f0da4e;	
+}
+/*
+.page .point table *{
+	padding-left: 15px;
+	padding-right: 15px;
+}*/
+.page .point h4{
+	padding-left: 15px;
+}
+.page .point .tb1 .statistics,
+.page .point .tb2 .statistics{
+	color: #5bc0de;
+	font-size: 1.5em;
+	list-style: 30px;
+	padding-right: 20px;
+}
+.page .point .tb1 .info,
+.page .point .tb2 .info{
+	line-height: 30px;
+	color: #888;
+}
+.page .point .tb1 .link,
+.page .point .tb2 .link{
+	line-height: 30px;
+	color: #f0b500;
+}
+.page .point .tb2 td{
+	border: 0;
+}
+.page .point .tb1 td{
+	border-top: 0;
+	border-right: 1px solid #ddd;
+}
+.page .point .tb1 td:last-child{
+	border-right: 0;
+}
+.page .point .tb1 tr:last-child{
+	border-bottom: 1px solid #ddd;
+}
+.page .point .products table td{
+	overflow: hidden;
+	position: relative;
+}
+.page .point .products table img{
+	width: 100%;
+}
+.page .point .products table .exchange{
+	position: absolute;
+	top:155px;
+	margin-left: -15px;
+	width: 100%;
+	height: 30px;
+	background: rgba(0,0,0,0.5);
+	color: #f0f0f0;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+.page .point .hd{
+	font-weight: bold;
+}
+.page .point .detail{
+	padding-top: 7px;
+}
+.page .point .detail a{
+	padding: 0;
+}
+.page .point .detailbtn{
+	float: right;
+}
+.page .point .pointzone{
+	height: 250px;
+	position: relative;
+}
+.page .point .pointzone .pointdetail{
+	text-align: center;
+	width: 350px;
+	height:120px;
+	background-image: url(../images/pointdetail.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.page .point .pointzone .pointdetail .btn{
+	margin-top: 25px;
+	width: 150px;
+	height: 50px;
+	color: #c80000;
+	font-size: 1.5em;
+	background-color: #ffec29;
+	border-color: #ffbe21;
+}
+.page .point .pointzone .pointinfo{
+	width: 350px;
+	height:120px;
+	border-radius: 10px;
+	background-color: #ffffbe;
+	padding-top: 20px;
+}
+.page .point .pointzone .productimg{
+    height: 100%;
+    width: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.page .su .modal-body{
+	overflow: auto;
+}
+.page .su img{
+	width: 100px;
+}
+.page .su .info{
+	font-weight: bold;
+	color: #c80000;
+	padding: 10px;
+}
+.page .point .rules p{
+	text-indent: 2em;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.page .point .order td{
+	vertical-align: middle;
+}
+.page .point .order td:last-child{
+	text-align: right;
+	width: 100px;
+}
+.page .point .order input{
+	width: 70px;
+	text-align: center;
+}
+.page .point .order .input-group-btn{
+	padding: 0;
+	margin: 0;
+}
+.page .point .order .checkout{
+	width: 150px;
+}
+/* 信用支付 */
+.cpage, .fpage{
+	padding-top: 10px;
+}
+.cpage .container,.fpage .container{
+	width: 100%;
+}
+.credit,.finance{
+	background-color: #fff;
+}
+.credithd .navbar{
+    border-radius:0;
+    min-height: 30px;
+    margin-bottom: 0;
+}
+.credithd .navbar-nav{
+	height: 30px;
+}
+.credithd .navbar-nav li a{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.credithd .navbar-nav .ccc{
+	color: #ccc !important;
+}
+.credithd .logo{
+	float: left;
+}
+.credithd .logmenu{
+	float: left;
+	height: 74px;
+}
+.credithd .logmenu li{
+	width: 100px;
+	text-align: center;
+}
+.credithd .logmenu li a{
+	line-height: 62px;
+	color: #888;
+	border-radius: 0;
+	transition:all 0.3s ease;
+	-moz-transition:all 0.3s ease; /* Firefox 4 */
+	-webkit-transition:all 0.3s ease; /* Safari and Chrome */
+	-o-transition:all 0.3s ease; /* Opera */
+}
+.credithd .logmenu li a:hover{
+	background-color: #fff;
+}
+.credithd .logmenu li.active a{
+	color: #31b0d5 !important;
+	background-color:#fff !important;
+	border-bottom: 2px solid #31b0d5;
+}
+.credit .cbanner{
+	background-color: #fff;
+	height: 350px;
+	overflow: hidden;
+	background-image: url(../images/credit.png);
+	background-position: center;
+	margin-top: -10px;
+}
+/*信用支付banner右侧*/
+.credit .cnote,
+.finance .fnote{
+	height: 250px;
+	width: 250px;
+	background: rgba(0,0,0,0.5);
+	float: right;
+	margin-top: 50px;
+	margin-right: 150px;
+	padding-top: 40px;
+	text-align: center;
+	color: #fff;
+}
+.credit .cmessage{
+	margin-top: 30px;
+}
+.finance .fmessage{
+	margin-top: 10px;
+}
+.credit .cmessage .lable{
+	color: #fff !important;
+}
+.credit .cmessage .cvalue{
+	color: #f2c61f;
+	font-size: 50px;
+	margin-bottom: -10px;
+}
+.credit .cmessage .cbtn,
+.finance .fmessage .fbtn{
+	width: 150px;
+	height: 40px;
+}
+/*信用支付优势*/
+.credit .c1{
+	text-align: center;
+	background-color: #defffd;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.credit .c1 .hd{
+	text-align: left;
+	color: #d95c5c;
+	font-size: 2em;
+	font-weight: bold;
+}
+.credit .c1 .adv{
+	height: 200px;
+}
+/*信用支付说明*/
+.credit .c2{
+	text-align: center;
+	background-color: #f2c61f;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.credit .c2 .hd{
+	text-align: left;
+	color: #fffee2;
+	font-size: 2em;
+	font-weight: bold;
+}
+.credit .c2 .q{
+	color: #654479;
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 50px;
+}
+/*信用支付流程*/
+.credit .c3{
+	text-align: center;
+	background-color: #f14141;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.credit .c3 .hd{
+	text-align: left;
+	color: #fff;
+	font-size: 2em;
+	font-weight: bold;
+}
+.cred .creditb td{
+	border-top: 0;
+}
+.cred .creditb .w200{
+	width: 200px;
+}
+.cred .creditb .hd{
+	font-size: 2em;
+	float: left;
+	line-height: 50px;
+}
+.cred .creditb .statistics{
+	font-size: 3em;
+	font-weight: bold;
+	color: #ffb60c;
+	float: left;
+	line-height: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.cred .creditb .btn{
+	width: 150px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	margin-right: 20px;
+}
+.cred .creditb .crlink{
+	width: 150px;
+	margin-right: 20px;
+}
+.cred .col-md-3 .content{
+	margin-left: -15px;
+	margin-right: -15px;
+}
+.cred .col-md-3 .seg{
+	padding-left: 20px;
+	padding-right: 10px;
+}
+.cred .col-md-3 .seg h3{
+	color: #337ab7;
+}
+.cred .col-md-3 .seg .statistics{
+	font-weight: bold;
+	color: #ffb60c;
+}
+.cred .col-md-3 .bddashed{
+	border-bottom: 1px dashed #ddd;
+}
+.cred .col-md-3 .seg .icon{
+	padding-left: 10px;
+	font-size: 14px;
+}
+.cred .form-group .info{
+	display: inline-block;
+	padding-left: 7px;
+	padding-top: 7px;
+}
+.cred .quickpay .statis{
+    display: inline-block;
+    color: #337ab7;
+    font-weight: bold;
+}
+.cred .fgtpwd{
+	display: inline-block;
+    padding-left: 10px;
+    color: #5bc0de;
+}
+.cred .paybtn{
+    width: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.cred .successinfo{
+	text-align: center;
+	padding-top: 120px;
+	padding-bottom: 140px;
+}
+/*理财平台*/
+.finance .fbanner{
+	background-color: #fff;
+	height: 350px;
+	overflow: hidden;
+	background-image: url(../images/finance.png);
+	background-position: center;
+	margin-top: -10px;
+}
+.finance .fhd{
+	color: #fcff00;
+	font-size: 2em;
+	font-weight: bold;
+	padding-bottom: 30px;
+}
+/*理财平台优势*/
+.finance .f1,
+.finance .f2,
+.finance .f3,
+.finance .f4,
+.finance .f5{
+	text-align: center;
+	background-color: #fff;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.finance .f1{
+	background-color: #fff1bd;
+}
+.finance .f2{
+	background-color: #e3ffde;
+}
+.finance .f4{
+	background-color: #fff9e1;
+}
+.finance .f5{
+	background-color: #bcabcc;
+}
+.finance .hd{
+	text-align: left;
+	font-size: 2em;
+	font-weight: bold;
+}
+.finance .f1 .adv{
+	height: 180px;
+}
+/*理财说明*/
+.finance .f2 .q{
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 50px;
+}
+/*理财产品*/
+.finance .f4 th{
+	font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 0;
+}
+.finance .f4 td{
+	font-size: 20px;
+    font-weight: 800;
+    color: #f2c61f;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 0;
+    border-top:0;
+    border-left: 1px dashed #ecc1c1;
+}
+.finance .f4 td:first-child{
+	border: 0;
+}
+.finance .f4 td .label{
+	margin-left: 20px;
+}
+.finance .f4 .btn{
+	width: 150px;
+	background-color: #f2c61f;
+	border: none;
+	font-size: 20px;
+}
+.finance .f4 .fst{
+	color: #d95c5c;
+	font-size: 3em;
+	font-weight: bold;
+}
+/*理财常见问题*/
+.finance .f5 .q{
+	padding-top: 15px;
+	text-align: left;
+	font-size: 18px;
+	line-height: 30px;
+}
+/*理财首页*/
+.page .invest table tr{
+	height: 80px;
+	color: #888;
+}
+.page .invest table tr:first-child{
+	height: 50px;
+}
+.page .invest table td{
+	vertical-align: middle;
+}
+.page .invest table .btn{
+	width: 100px;
+}
+.page .invest table .buybtn{
+	width: 120px;
+	text-align: right;
+}
+.page .invest .statistics{
+	font-weight: bold;
+	color: #ffb60c;
+	font-size: 1.5em;
+	padding-right: 10px;
+}
+.page .invest .vsearch{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.page .invest .vsearch label{
+	padding-right: 20px;
+}
+.page .invest .vsearch .btn{
+	min-width: 95px;
+}
+.page .invest .investad img{
+	width: 48%;
+	border:1px solid #fff;
+}
+.page .invest .investad img:hover{
+	border: 1px solid #ffb60c;
+}
+.page .invest .detail p{
+	padding-top: 7px;
+}
+.page .invest .detail .form-group{
+	margin-bottom: 0;
+}
+.page .invest .detail .info{
+	color: #888;
+	font-size: 12px;
+}
+.page .invest .detail .upper{
+	color: #f90000;
+}
+.page .invest .successinfo{
+	text-align: center;
+	padding-top: 150px;
+	padding-bottom: 180px;
+}
+.page .invest .actbtn td:last-child{
+	width: 200px;
+	text-align: right;	
+}
+.page .invest .actbtn button{
+	width: 70px;
+}
+.page .invest .actbtn button:first-child{
+	margin-right: 10px;
+}
+.page .invest .myinvest{
+	width: 100%;
+}
+.page .invest .myinvest td{
+	border-right: 1px solid #ddd;
+	padding-left: 30px;
+	text-align: center;
+}
+.page .invest .myinvest td:first-child{
+	padding-left: 0;
+}
+.page .invest .myinvest td:last-child{
+	border: 0;
+}
+.page .invest .quickpay .statis{
+	display: inline-block;
+    color: #337ab7;
+    font-weight: bold;
+}
+.page .invest .fgtpwd{
+	display: inline-block;
+    padding-left: 10px;
+    color: #5bc0de;
+}
+.page .invest .paybtn{
+    width: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* 成功失败 */
+.status{
+	height: 380px;
+	/*background-image: url(../images/logo-back.png);*/
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
+.statusicon{
+	margin-top: 100px;
+	margin-left: 120px;
+	width: 150px;
+}
+.statusicon img{
+	width: 100%;
+	height: 100%;
+}
+.statusmsg{
+	padding-left: 50px;
+	padding-top: 140px;
+	font-weight: bold;
+	font-size: 40px;
+}
+.statusbtn{
+	text-align: center;
+	padding-top: 50px;
+}
+.statusbtn button{
+	width: 150px;
+	margin-left: 50px;
+}
+.statusbtn button:first-child{
+	margin-left: 0;
+}
+/* 帮助中心 */
+.help .c1003{
+	padding-bottom: 15px;
+}
+.help .panel .hd{
+	padding:10px;
+}
+.help .panel-group{
+	margin-bottom:0;
+}
+.help .helpsearch{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.help .helptb th,.help .helptb td{
+	height: 50px;
+	line-height: 50px;
+}
+.help .helptb li{
+	float: left;
+	margin-left: 30px;
+}
+.help .helptb li:first-child{
+	margin-left: 0;
+	list-style-type: none;
+}
+.help .contactb{
+	height: 30px;
+	line-height: 30px;
+}
+.help .contactb th{
+	width: 120px;
+}
+.help .newstb th{
+	width: 150px;
+}
+.help .backnews{
+	line-height: 60px;
+	float: right;
+}
+.help .newstitle{
+	padding-bottom: 20px;
+}
+
+/*担保交易*/
+/*进度条*/
+.crSteps li{  
+    text-align: center;
+    width: 175px;
+    line-height: 40px;  
+    background: #50abe4;
+    display: inline-block;   
+    color: #fff;  
+    position: relative;  
+}
+/*after 伪类三角形*/
+.crSteps li:after{  
+    content: '';  
+    display: block;  
+    border-top: 20px solid transparent;  
+    border-bottom: 20px solid transparent;  
+    border-left: 20px solid #50abe4;  
+    position: absolute;   
+    right: -20px;
+    top: 0;
+    z-index: 10;
+}
+/*before 伪类三角形*/
+.crSteps li:before{  
+    content: '';  
+    display: block;  
+    border-top: 20px solid #50abe4;  
+    border-bottom: 20px solid #50abe4;  
+    border-left: 20px solid white;  
+    position: absolute;   
+    left: 0px;   
+    top: 0;  
+}
+/*开头结尾*/
+.crSteps li:first-child{    
+    border-radius: 4px 0 0 4px;
+    padding-left: 25px;  
+}    
+.crSteps li:last-child{    
+    border-radius: 0px 4px 4px 0px;    
+    padding-right: 25px;  
+}    
+.crSteps li:first-child:before{    
+    display: none;    
+}    
+.crSteps li:last-child:after{    
+    display: none;
+}
+/*选中状态*/
+.crSteps li.active {  
+    background-color: #f0b500;  
+}  
+.crSteps li.active:after {  
+    border-left-color: #f0b500;  
+}
+.crSteps li.active:before {  
+    border-top-color: #f0b500;
+    border-bottom-color: #f0b500;  
+}
+/*确认订单信息*/
+.guarantee .info{
+	color: #09ab24;
+}
+.guarantee .order table td:last-child{
+	text-align: right;
+}
+.guarantee .btn{
+	width: 150px;
+}
+.guarantee .pay .glyphicon{
+	padding-right: 10px;
+}
+.guarantee .pay .quickpay .statistics{
+    display: inline-block;
+    color: #337ab7;
+    font-weight: bold;
+}
+.guarantee .pay .info{
+	display: inline-block;
+    padding-left: 10px;
+    color: #5bc0de;
+}
+.guarantee .pay .pwdinput{
+	padding-bottom: 20px;
+}
+.guarantee .pay .msg{
+	font-size: 1.5em;
+	font-weight: bold;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.guarantee .pay .att{
+	padding-top: 20px;
+}
+.guarantee .pay .att button{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.guarantee .others td{
+	text-align: center;
+}
+.repeatUpload {
+    position: absolute;
+    left: 63px;
+    top: 39px;
+    font-size: 18px;
+    color: #337ab7;
+}
+.uploadtips {
+    position: absolute;
+    left: 63px;
+    top: 39px;
+    font-size: 18px;
+    color: #337ab7;
+}
+.addressInput{
+	border-color: #878787; 
+border-style: dashed; 
+border-top-width: 0px;
+ border-right-width: 0px; 
+border-bottom-width: 1px;
+ border-left-width: 0px;
+ outline:none;
+     width: 195px !important;
+    text-align: left !important;
+}
+.merchantTrans{
+    width: 100% !important;
+    padding: 29px !important;
+}
+.form-group.form-group2{
+	margin-top: 10px;
+    margin-left: 29px;	
+}
+.table.table-striped td {
+    width: 50px;
+}
+.tableFont{
+	font-size: 12px !important;
+}
