@@ -4,15 +4,11 @@ package com.app.information.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Service;
 
 import com.app.information.dao.InformationDao;
 import com.app.information.model.InformationLike;
 import com.app.information.model.information;
-import com.app.userwork.model.UserInfo;
 
 @Service
 public class InformationService {
