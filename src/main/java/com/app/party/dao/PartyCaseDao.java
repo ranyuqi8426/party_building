@@ -43,7 +43,7 @@ public class PartyCaseDao {
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public PartyCase get(String list_id) {
-		String sql = "select t.* from bns_news t where t.news_id=? ";
+		String sql = "select t.* from bns_party_case t where t.party_case_id=? ";
 		Object[] params = new Object[] { list_id };
 		List<PartyCase> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper(PartyCase.class));
 		if (list.size() > 0)
