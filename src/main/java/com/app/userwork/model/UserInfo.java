@@ -19,6 +19,7 @@ public class UserInfo {
 	private String home_address;// 家庭住址
 	private String is_merchant;// 是否商家
 	private String is_party;//是否党员
+	private String head_img_url;//头像
 	public int getUser_id() {
 		return user_id;
 	}
@@ -126,6 +127,12 @@ public class UserInfo {
 	}
 	public void setIs_party(String is_party) {
 		this.is_party = is_party;
+	}
+	public String getHead_img_url() {
+		return head_img_url;
+	}
+	public void setHead_img_url(String head_img_url) {
+		this.head_img_url = head_img_url;
 	}
 
 	

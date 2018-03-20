@@ -57,11 +57,12 @@ public class LoginDao {
 	 */
 	public int add(UserInfo userInfo) {
 		NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
-		String sql = "insert into t_sys_user (user_cd,user_password,phone)";
-		sql += " values(:user_cd,:user_password,:phone)";
+		String sql = "insert into t_sys_user (user_cd,user_password,phone,user_tencent,sex,user_nicknm,user_name,home_address,head_img_url)";
+		sql += " values(:user_cd,:user_password,:phone,:user_tencent,:sex,:user_name,:user_name,:home_address,:head_img_url)";
 		SqlParameterSource paramSource = new BeanPropertySqlParameterSource(userInfo);
 		KeyHolder keyHolder = new GeneratedKeyHolder();
-		int user_id = namedParameterJdbcTemplate.update(sql,paramSource, keyHolder, new String[]{"user_id"});
+		namedParameterJdbcTemplate.update(sql,paramSource, keyHolder, new String[]{"user_id"});
+		int user_id =keyHolder.getKey().intValue();
 		if(user_id != 0){
 			String sql1 = "insert into bns_point (user_id,add_point,reduce_point,create_cd)";
 			sql1 += " values("+user_id+",0,0,"+user_id+")";
@@ -69,9 +70,8 @@ public class LoginDao {
 			String sql2 = "insert into t_sys_user_role (user_id,role_id)";
 			sql2 += " values("+user_id+",1)";
 			jdbcTemplate.update(sql2);
-			return 1;
 		}
-		return 0;
+		return user_id;
 		
 	}
 	

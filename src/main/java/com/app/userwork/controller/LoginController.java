@@ -49,6 +49,28 @@ public class LoginController {
 		}
 	}
 	/**
+	 * 第三方登录
+	 * @param request
+	 * @param response
+	 * @param username
+	 * @param password
+	 */
+	@RequestMapping("/WXQQLogin")
+	public void WXQQLogin(HttpServletRequest request, HttpServletResponse response, UserInfo userInfo,String LoginType) {
+		{
+			String ip = StringUtil.getIp(request);
+			UserInfo userInfos = LoginService.checkWXQQLogin(userInfo,ip,LoginType);
+			String json = "";
+			
+			if (userInfos != null) {
+				json = JsonUtil.toJsonStr(userInfos, true, "");
+			}else {
+				json = JsonUtil.toJsonStr(userInfos, false, "加载失败，请重新登录！");
+			}
+			WebUtil.out(response, json);
+		}
+	}
+	/**
 	 * 注册
 	 * @author 冉玉琦
 	 * @date 2018年3月3日

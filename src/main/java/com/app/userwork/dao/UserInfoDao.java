@@ -51,6 +51,21 @@ public class UserInfoDao {
 		return list;
 	}
 	/**
+	 * 获取用户信息 微信QQ
+	 * @author 冉玉琦
+	 * @date 2018年3月1日
+	 * @param username
+	 * @param pwd
+	 * @return
+	 */
+	public List<UserInfo> userInfoForOpenId(String user_tencent) {
+		String sql = "select * from t_sys_user where user_tencent=? ";
+		Object[] params = new Object[] { user_tencent };
+		List<UserInfo> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(UserInfo.class));
+		return list;
+	}
+	
+	/**
 	 * 保存用户信息
 	 * @author 冉玉琦
 	 * @date 2018年3月3日
@@ -62,7 +77,8 @@ public class UserInfoDao {
 		String sql = " update t_sys_user set ";
 				sql += " floor_id = :floor_id,";
 				if (StringUtil.isNotNullOrEmpty(userInfo.getUser_name())) {
-					sql += " user_name = :user_name, ";
+					sql += " user_name = :user_name,";
+					sql += " user_nicknm = :user_name,";
 				}
 				if (StringUtil.isNotNullOrEmpty(userInfo.getSex())) {
 					sql += " sex = :sex,";
@@ -89,8 +105,14 @@ public class UserInfoDao {
 					sql += " phone = :phone,";
 				}
 				if (StringUtil.isNotNullOrEmpty(userInfo.getHome_address())) {
-					sql += " home_address =:home_address";
+					sql += " home_address =:home_address,";
 				}
+				
+				
+				if (StringUtil.isNotNullOrEmpty(userInfo.getHead_img_url())) {
+					sql += " head_img_url =:head_img_url,";
+				}
+				sql = sql.substring(0, sql.length()-1);
 				sql += " where user_id = :user_id";
 		SqlParameterSource paramSource = new BeanPropertySqlParameterSource(userInfo);
 		 if(namedParameterJdbcTemplate.update(sql, paramSource)==1){
