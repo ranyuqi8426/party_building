@@ -16,6 +16,7 @@ public class PartyMoney {
 	private String party_home;// 隶属党支部
 	private String create_cd;// 创建人
 	private Date create_time;// 创建时间
+	private String user_name;// 用户名称
 	public int getParty_money_id() {
 		return party_money_id;
 	}
@@ -57,6 +58,12 @@ public class PartyMoney {
 	}
 	public void setCreate_time(Date create_time) {
 		this.create_time = create_time;
+	}
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
 }

@@ -24,20 +24,19 @@ public class PartySingleController {
 
     /**
      * 模块一 规范建设
-     * kinds 1
+     * content_type 1
      */
 
     /**
      * 列表查询
      * @param request
      * @param response
-     * @param build_id
+     * @param floorid
      * @param user_id
      */
     @RequestMapping(value = "/js/list")
-    public void listJS(HttpServletRequest request, HttpServletResponse response,String build_id,String user_id){
-        int kinds = 1;
-        List<PartySingle> list = partySingleService.list(build_id,user_id,kinds);
+    public void listJS(HttpServletRequest request, HttpServletResponse response,String floorid,String user_id,String party_single_status,String content_type){
+        List<PartySingle> list = partySingleService.list(floorid,user_id,content_type,party_single_status);
         String json = "";
         if (list != null && list.size()>0) {
             json = JsonUtil.toJsonStr(list, true, "");
@@ -54,9 +53,8 @@ public class PartySingleController {
      * @param partySinge_id
      */
     @RequestMapping(value = "/js/getOne")
-    public void getOneJS(HttpServletRequest request, HttpServletResponse response,String partySinge_id){
-        int kinds = 1;
-        PartySingle partySingle = partySingleService.getOne(partySinge_id,kinds);
+    public void getOneJS(HttpServletRequest request, HttpServletResponse response,String partySinge_id,String content_type){
+        PartySingle partySingle = partySingleService.getOne(partySinge_id,content_type);
         String json = "";
         if (partySingle != null) {
             json = JsonUtil.toStr(partySingle);
@@ -74,9 +72,8 @@ public class PartySingleController {
      * @param partySingle
      */
     @RequestMapping(value = "/js/add")
-    public void addJS (HttpServletRequest request, HttpServletResponse response, PartySingle partySingle){
-        int kinds = 1;
-        int flag = partySingleService.add(partySingle,kinds);
+    public void addJS (HttpServletRequest request, HttpServletResponse response, PartySingle partySingle,String content_type){
+        int flag = partySingleService.add(partySingle);
         String json = "";
         if (flag == 1) {
             json = JsonUtil.createOperaStr(true, "添加成功！");
@@ -93,9 +90,8 @@ public class PartySingleController {
      * @param partySingle
      */
     @RequestMapping(value = "/js/update")
-    public void updateJS (HttpServletRequest request, HttpServletResponse response,PartySingle partySingle){
-        int kinds = 1;
-        int flag = partySingleService.update(partySingle,kinds);
+    public void updateJS (HttpServletRequest request, HttpServletResponse response,PartySingle partySingle,String content_type){
+        int flag = partySingleService.update(partySingle);
         String json = "";
         if (flag == 1) {
             json = JsonUtil.createOperaStr(true, "修改成功！");
@@ -112,9 +108,8 @@ public class PartySingleController {
      * @param party_single_id
      */
     @RequestMapping(value = "/js/delete")
-    public void deleteJS(HttpServletRequest request, HttpServletResponse response,String party_single_id){
-        int kinds = 1;
-        int flag = partySingleService.delete(party_single_id,kinds);
+    public void deleteJS(HttpServletRequest request, HttpServletResponse response,String party_single_id,String content_type){
+        int flag = partySingleService.delete(party_single_id);
         String json = "";
         if (flag == 1) {
             json = JsonUtil.createOperaStr(true, "删除成功！");
@@ -134,13 +129,12 @@ public class PartySingleController {
      * 列表查询
      * @param request
      * @param response
-     * @param build_id
+     * @param floorid
      * @param user_id
      */
     @RequestMapping(value = "/fw/list")
-    public void listFW(HttpServletRequest request, HttpServletResponse response,String build_id,String user_id){
-        int kinds = 2;
-        List<PartySingle> list = partySingleService.list(build_id,user_id, kinds);
+    public void listFW(HttpServletRequest request, HttpServletResponse response,String floorid,String user_id ,String party_single_status,String content_type){
+        List<PartySingle> list = partySingleService.list(floorid,user_id, content_type,party_single_status);
         String json = "";
         if (list != null && list.size()>0) {
             json = JsonUtil.toJsonStr(list, true, "");
@@ -157,9 +151,8 @@ public class PartySingleController {
      * @param partySinge_id
      */
     @RequestMapping(value = "/fw/getOne")
-    public void getOneFW(HttpServletRequest request, HttpServletResponse response,String partySinge_id){
-        int kinds = 2;
-        PartySingle partySingle = partySingleService.getOne(partySinge_id, kinds);
+    public void getOneFW(HttpServletRequest request, HttpServletResponse response,String partySinge_id,String content_type){
+        PartySingle partySingle = partySingleService.getOne(partySinge_id, content_type);
         String json = "";
         if (partySingle != null) {
             json = JsonUtil.toStr(partySingle);
@@ -177,9 +170,8 @@ public class PartySingleController {
      * @param partySingle
      */
     @RequestMapping(value = "/fw/add")
-    public void addFW (HttpServletRequest request, HttpServletResponse response, PartySingle partySingle){
-        int kinds = 2;
-        int flag = partySingleService.add(partySingle, kinds);
+    public void addFW (HttpServletRequest request, HttpServletResponse response, PartySingle partySingle,String content_type){
+        int flag = partySingleService.add(partySingle);
         String json = "";
         if (flag == 1) {
             json = JsonUtil.createOperaStr(true, "添加成功！");
@@ -196,9 +188,8 @@ public class PartySingleController {
      * @param partySingle
      */
     @RequestMapping(value = "/fw/update")
-    public void updateFW (HttpServletRequest request, HttpServletResponse response,PartySingle partySingle){
-        int kinds = 2;
-        int flag = partySingleService.update(partySingle, kinds);
+    public void updateFW (HttpServletRequest request, HttpServletResponse response,PartySingle partySingle,String content_type){
+        int flag = partySingleService.update(partySingle);
         String json = "";
         if (flag == 1) {
             json = JsonUtil.createOperaStr(true, "修改成功！");
@@ -215,9 +206,8 @@ public class PartySingleController {
      * @param party_single_id
      */
     @RequestMapping(value = "/fw/delete")
-    public void deleteFW(HttpServletRequest request, HttpServletResponse response,String party_single_id){
-        int kinds = 2;
-        int flag = partySingleService.delete(party_single_id, kinds);
+    public void deleteFW(HttpServletRequest request, HttpServletResponse response,String party_single_id,String content_type){
+        int flag = partySingleService.delete(party_single_id);
         String json = "";
         if (flag == 1) {
             json = JsonUtil.createOperaStr(true, "删除成功！");
@@ -237,13 +227,12 @@ public class PartySingleController {
      * 列表查询
      * @param request
      * @param response
-     * @param build_id
+     * @param floorid
      * @param user_id
      */
     @RequestMapping(value = "/fg/list")
-    public void listFG(HttpServletRequest request, HttpServletResponse response,String build_id,String user_id){
-        int kinds = 3;
-        List<PartySingle> list = partySingleService.list(build_id,user_id, kinds);
+    public void listFG(HttpServletRequest request, HttpServletResponse response,String floorid,String user_id ,String party_single_status,String content_type){
+        List<PartySingle> list = partySingleService.list(floorid,user_id, content_type,party_single_status);
         String json = "";
         if (list != null && list.size()>0) {
             json = JsonUtil.toJsonStr(list, true, "");
@@ -260,9 +249,8 @@ public class PartySingleController {
      * @param partySinge_id
      */
     @RequestMapping(value = "/fg/getOne")
-    public void getOneFG(HttpServletRequest request, HttpServletResponse response,String partySinge_id){
-        int kinds = 3;
-        PartySingle partySingle = partySingleService.getOne(partySinge_id, kinds);
+    public void getOneFG(HttpServletRequest request, HttpServletResponse response,String partySinge_id,String content_type){
+        PartySingle partySingle = partySingleService.getOne(partySinge_id, content_type);
         String json = "";
         if (partySingle != null) {
             json = JsonUtil.toStr(partySingle);
@@ -280,9 +268,8 @@ public class PartySingleController {
      * @param partySingle
      */
     @RequestMapping(value = "/fg/add")
-    public void addFG(HttpServletRequest request, HttpServletResponse response, PartySingle partySingle){
-        int kinds = 3;
-        int flag = partySingleService.add(partySingle, kinds);
+    public void addFG(HttpServletRequest request, HttpServletResponse response, PartySingle partySingle,String content_type){
+        int flag = partySingleService.add(partySingle);
         String json = "";
         if (flag == 1) {
             json = JsonUtil.createOperaStr(true, "添加成功！");
@@ -299,9 +286,8 @@ public class PartySingleController {
      * @param partySingle
      */
     @RequestMapping(value = "/fg/update")
-    public void updateFG(HttpServletRequest request, HttpServletResponse response,PartySingle partySingle){
-        int kinds = 3;
-        int flag = partySingleService.update(partySingle, kinds);
+    public void updateFG(HttpServletRequest request, HttpServletResponse response,PartySingle partySingle,String content_type){
+        int flag = partySingleService.update(partySingle);
         String json = "";
         if (flag == 1) {
             json = JsonUtil.createOperaStr(true, "修改成功！");
@@ -318,9 +304,8 @@ public class PartySingleController {
      * @param party_single_id
      */
     @RequestMapping(value = "/fg/delete")
-    public void deleteFG(HttpServletRequest request, HttpServletResponse response,String party_single_id){
-        int kinds = 3;
-        int flag = partySingleService.delete(party_single_id, kinds);
+    public void deleteFG(HttpServletRequest request, HttpServletResponse response,String party_single_id,String content_type){
+        int flag = partySingleService.delete(party_single_id);
         String json = "";
         if (flag == 1) {
             json = JsonUtil.createOperaStr(true, "删除成功！");

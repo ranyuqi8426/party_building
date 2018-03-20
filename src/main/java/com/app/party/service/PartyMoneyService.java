@@ -1,6 +1,7 @@
 package com.app.party.service;
 
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class PartyMoneyService {
 	 * @author 冉玉琦
 	 * @date 2018年3月1日
 	 */
-	public List<PartyMoney> list(String floor_id,String user_id) {
-		List<PartyMoney> list = partyMoneyDao.list(floor_id,user_id);
+	public List<PartyMoney> list(String floor_id,String user_id,int pageSize) {
+		List<PartyMoney> list = partyMoneyDao.list(floor_id,user_id,pageSize);
 		
 		return list;
 	}
@@ -30,6 +31,7 @@ public class PartyMoneyService {
 	 * @date 2018年3月1日
 	 */
 	public int add(PartyMoney partyMoney) {
+		partyMoney.setPay_time(new Date(new Date().getTime()));
 		return partyMoneyDao.add(partyMoney);
 	}
 	

@@ -35,7 +35,7 @@ public class WebUtil {
 				gzipReponse(response, str);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		} 
 	}
 
 	public static void gzipReponse(HttpServletResponse response, String data) {

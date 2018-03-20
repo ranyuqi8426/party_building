@@ -13,7 +13,7 @@ import com.app.util.json.JsonUtil;
 import com.app.util.web.WebUtil;
 
 
-@RequestMapping("/partycase")
+@RequestMapping("/partyHomeApply")
 @Controller
 public class PartyHomeApplyController {
 	

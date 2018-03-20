@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.app.party.model.PartyMoney;
+import com.app.util.page.PageUtil;
 
 
 @Repository
@@ -25,9 +26,10 @@ public class PartyMoneyDao {
 	 * @param pageSize
 	 * @return
 	 */
-	public List<PartyMoney> list(String floor_id ,String user_id) {
-		String sql = "select t.* from bns_party_money t where ";
+	public List<PartyMoney> list(String floor_id ,String user_id,int pageSize) {
+		String sql = "select t.*,(select a.user_nicknm from t_sys_user a where a.user_id = t.user_id) as user_name from bns_party_money t where ";
 				sql += "  t.USER_ID =? ";
+		sql = PageUtil.createMysqlPageSql(sql,pageSize, 3);
 		Object[] params = new Object[] {user_id };
 		List<PartyMoney> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(PartyMoney.class));
 		return list;

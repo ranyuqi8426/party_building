@@ -31,9 +31,9 @@ public class PartyMoneyController {
 	 * @param response
 	 */
 	@RequestMapping("/list")
-	public void list(HttpServletRequest request, HttpServletResponse response,String floor_id,String user_id) {
+	public void list(HttpServletRequest request, HttpServletResponse response,String floor_id,String user_id,int pageSize ) {
 		{
-			List<PartyMoney> list = partyMoneyService.list(floor_id,user_id);
+			List<PartyMoney> list = partyMoneyService.list(floor_id,user_id,pageSize);
 			String json = "";
 			if (list != null && list.size()>0) {
 				json = JsonUtil.toJsonStr(list, true, "");
@@ -58,9 +58,9 @@ public class PartyMoneyController {
 			String json = "";
 			
 			if (flag == 1) {
-				json = JsonUtil.createOperaStr(true, "申请成功！");
+				json = JsonUtil.createOperaStr(true, "缴纳成功！");
 			}else{
-				json = JsonUtil.createOperaStr(false, "申请失败！");
+				json = JsonUtil.createOperaStr(false, "缴纳失败！");
 			}
 			WebUtil.out(response, json);
 		}
