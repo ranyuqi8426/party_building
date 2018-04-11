@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="mui.min.css">
+		<link rel="stylesheet" href="icons-extra.css" />
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head>
+	<body class="newsdetail">
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">新闻资讯</h1>
+		</header>
+		<div class="mui-content">
+			<div class="newsimg"><img src=""/id="imgId"></div>
+			<div class="mui-content-padded">
+				<div class="title" id="titleId"></div>
+				<div class="time" id="timeId"></div>
+				<div class="content" id="contentId">
+					
+				</div>	
+			</div>
+		</div>
+	</body>
+	<script src="mui.min.js"></script>
+	<script type="text/javascript" src="Util.js" ></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		queryDetalis()
+		function getQueryString(name) {  
+		    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
+		    var r = window.location.search.substr(1).match(reg);  
+		    if (r != null) return decodeURI(r[2]); return null;  
+		}  
+  
+		function queryDetalis(){
+			mui.ajax(PublicUrl + "information/get", {
+				data: {
+					"list_id": getQueryString("listId"),
+					"user_id":''
+				},
+				dataType: 'json',
+				type: 'post',
+				timeout: 5000,
+				async: true,
+				success: function(data) { 
+	 				//转换为string字符串 
+					console.log(JSON.stringify(data));
+					if(data.success) {
+						//数据加载
+						loadData(data.list);
+					}else{
+						mui.toast(data.msg)
+					}
+					
+				},
+				error: function(xhr, type, errorThrown) {
+					mui.toast('服务器异常，请稍后重试！')
+					console.log(JSON.stringify(xhr));
+					console.log(type);
+					console.log(errorThrown);
+				}
+			});
+		} 
+		function loadData(data){
+			document.getElementById('imgId').src = data.news_img;
+			document.getElementById('titleId').innerHTML = data.news_title;
+			document.getElementById('timeId').innerHTML = data.author+"&ensp;&ensp;&ensp;&ensp;"+ dateformat2(data.create_time);
+			document.getElementById('contentId').innerHTML = data.content;
+		}
+		
+	</script>
+</html>
