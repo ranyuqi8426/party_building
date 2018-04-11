@@ -24,5 +24,9 @@ public class PolicyService {
 		
 		return list;
 	}
+
+	public Policy get(String list_id) {
+		return  policyDao.get(list_id);
+	}
 	
 }

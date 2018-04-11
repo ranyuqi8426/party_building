@@ -38,10 +38,9 @@ public class UserSignDao {
 	 */
 	public List<UserSign> list(String startDate, String endDate, int user_id) {
 		String sql = "select t.* from bns_sign_record t where t.user_id=? "
-				+ " and to_char(t.sign_time,'') >= startDate"
-				+ " and to_char(t.sign_time,'') <= endDate"
+				+ " and to_days(sign_time)=to_days(now()) "
 				+ " order by t.sign_time desc ";
-		Object[] params = new Object[] { user_id, startDate,endDate};
+		Object[] params = new Object[] { user_id};
 		List<UserSign> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(UserSign.class));
 		return list;
 	}

@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.app.servicestop.model.Discount;
+import com.app.servicestop.model.DiscountCustom;
 import com.app.servicestop.model.UserDiscount;
 import com.app.util.page.PageUtil;
 
@@ -76,7 +77,46 @@ public class DiscountDao {
 		SqlParameterSource paramSource = new BeanPropertySqlParameterSource(userDiscount);
 		return namedParameterJdbcTemplate.update(sql, paramSource);
 	}
-	
+	/*****************************************************************我的优惠*************************************************************************/
+	/**
+	 * 我的  优惠劵列表查询
+	 * @author 冉玉琦
+	 * @date 2018年3月2日
+	 * type_id  0未兑换1已兑换2已过期
+	 * @return
+	 */
+	public List<UserDiscount> listUserMy(int user_id,int type_id,int pageSize){
+		String sql = "select * from bns_user_discount t left join bns_merchant_discount a on t.discount_id = a.merchant_discount_id where t.user_id=?  ";
+		if(type_id == 0){
+			sql += " and t.operation_status = 0";
+			sql += " and unix_timestamp(a.discount_endtime) > unix_timestamp(now())";
+		}else if(type_id == 1){
+			sql += " and t.operation_status = 1";
+		}else {
+			sql += " and unix_timestamp(a.discount_endtime) < unix_timestamp(now())";
+		}
+		
+		sql += " order by a.discount_endtime desc";
+		sql = PageUtil.createMysqlPageSql(sql,pageSize, 3);
+		Object[] params = new Object[] { user_id};
+		return  jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(UserDiscount.class));
+	}
+
+	public DiscountCustom queryQRcode(String operation_no) {
+		String sql = "select t.discount_id,a.discount_name,b.merchant_name  ";
+		sql += " from bns_user_discount t,bns_merchant_discount a, bns_merchant_info b";
+		sql += " where 1=1";
+		sql += " and t.discount_id = a.merchant_discount_id";
+		sql += " and a.merchant_id = b.merchant_id";
+		sql += " and t.operation_no=?  ";
+		
+		Object[] params = new Object[] { operation_no};
+		List<DiscountCustom> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(DiscountCustom.class));
+		if(list != null && list.size()>0){
+			return list.get(0);
+		}
+		return null;
+	}
 	
 	
 	

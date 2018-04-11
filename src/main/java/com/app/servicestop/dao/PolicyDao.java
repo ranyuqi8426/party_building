@@ -30,6 +30,15 @@ public class PolicyDao {
 		List<Policy> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Policy.class));
 		return list;
 	}
+	public Policy get(String list_id) {
+		String sql = "select t.* from bns_policy t where t.policy_id=? ";
+		Object[] params = new Object[] { list_id};
+		List<Policy> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Policy.class));
+		if (list!=null&&list.size()>0) {
+			return list.get(0);
+		}
+		return null;
+	}
 	
 
 

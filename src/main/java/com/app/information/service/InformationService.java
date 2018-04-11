@@ -42,7 +42,7 @@ public class InformationService {
 	 * @date 2018年3月2日
 	 * @param informationLike
 	 */
-	public int addLike(int user_id,int news_id) {
+	public int addLike(int news_id,int user_id) {
 		InformationLike informationLike = new InformationLike();
 		informationLike.setCreate_cd(user_id);
 		informationLike.setNews_id(news_id);

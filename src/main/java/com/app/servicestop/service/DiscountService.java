@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.app.servicestop.dao.DiscountDao;
 import com.app.servicestop.model.Discount;
+import com.app.servicestop.model.DiscountCustom;
 import com.app.servicestop.model.UserDiscount;
 import com.app.userwork.dao.UserPointDao;
 import com.app.userwork.model.UserPoint;
+import com.app.util.QRcode.QRcodeUtil;
 import com.app.util.date.DateUtil;
 import com.app.util.string.StringUtil;
 
@@ -54,7 +56,7 @@ public class DiscountService {
 		if(userPoint == null ){
 			return 0;
 		}
-		if((Integer.parseInt(userPoint.getAdd_point())-Integer.parseInt(userPoint.getReduce_point()))<Integer.valueOf(discount.getDiscount_fraction())){
+		if((userPoint.getAdd_point()-userPoint.getReduce_point())<Integer.valueOf(discount.getDiscount_fraction())){
 			return 3;
 		}
 		UserDiscount userDiscount = new UserDiscount();
@@ -76,5 +78,25 @@ public class DiscountService {
 		return discountDao.get(merchant_discount_id);
 	}
 	
-	
+	/**
+	 * 我的  优惠劵列表查询
+	 * @author 冉玉琦
+	 * @date 2018年3月2日
+	 * type_id  0未兑换1已兑换2已过期
+	 * @return
+	 */
+	public List<UserDiscount> listUserMy(int user_id,int type_id,int pageSize){
+		return discountDao.listUserMy(user_id, type_id,pageSize);
+	}
+
+	public DiscountCustom queryQRcode(String operation_no) {
+		DiscountCustom discountCustom = discountDao.queryQRcode(operation_no);
+		if(discountCustom == null){
+			return discountCustom;
+		}
+		String codeImg = QRcodeUtil.generalQRCode(operation_no);
+		codeImg = "data:image/jpg;base64," + codeImg;
+		discountCustom.setCode_img(codeImg);
+		return discountCustom;
+	}
 }

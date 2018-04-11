@@ -43,6 +43,24 @@ public class PolicyController {
 		}
 	}
 	
-	
+	/**
+	 * 政策发布查询
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/get")
+	public void get(HttpServletRequest request, HttpServletResponse response,String list_id) {
+		{
+			Policy list = policyService.get(list_id);
+			String json = "";
+			
+			if (list != null ) {
+				json = JsonUtil.toJsonStr(list, true, "");
+			}else {
+				json = JsonUtil.toJsonStr(list, false, "暂无数据！");
+			}
+			WebUtil.out(response, json);
+		}
+	}
 
 }

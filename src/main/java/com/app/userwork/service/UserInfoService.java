@@ -7,6 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.app.userwork.dao.UserInfoDao;
 import com.app.userwork.model.UserInfo;
+import com.app.userwork.vo.UserInfoVO;
+import com.app.util.constant.ConstantUtil;
+import com.app.util.date.DateUtil;
+import com.app.util.file.ImgFile;
+import com.app.util.string.StringUtil;
 
 @Service
 public class UserInfoService {
@@ -43,7 +48,21 @@ public class UserInfoService {
 	 * @return
 	 */
 	public UserInfo updateUserInfo(UserInfo userInfo) {
+		String filepath = "userInfo/"+userInfo.getUser_id();
+		if(StringUtil.isNotNullOrEmpty(userInfo.getHead_img_url())){
+			String filename = "/"+StringUtil.creadImgName(DateUtil.getShortSystemTime())+".jpg";
+			boolean flag = ImgFile.GenerateImage(userInfo.getHead_img_url(),filepath ,filename );
+			if (flag) {
+				userInfo.setHead_img_url(ConstantUtil.weburl+filepath+filename);
+			}else {
+				userInfo.setHead_img_url("");
+			}
+		}
 		return userInfoDao.updateUserInfo(userInfo);
 		
+	}
+
+	public int updatePWD(UserInfoVO userInfo) {
+		return userInfoDao.updatePWD(userInfo);
 	}
 }

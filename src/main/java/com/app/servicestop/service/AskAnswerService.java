@@ -11,7 +11,6 @@ import com.app.servicestop.dao.AskAnswerDao;
 import com.app.servicestop.model.AskAnswer;
 import com.app.servicestop.model.AskAnswerListNum;
 
-import sun.tools.tree.NewArrayExpression;
 
 @Service
 public class AskAnswerService {

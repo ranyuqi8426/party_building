@@ -20,6 +20,11 @@ public class UserInfo {
 	private String is_merchant;// 是否商家
 	private String is_party;//是否党员
 	private String head_img_url;//头像
+	
+	
+	
+	private String role_id;//角色id
+	
 	public int getUser_id() {
 		return user_id;
 	}
@@ -133,6 +138,12 @@ public class UserInfo {
 	}
 	public void setHead_img_url(String head_img_url) {
 		this.head_img_url = head_img_url;
+	}
+	public String getRole_id() {
+		return role_id;
+	}
+	public void setRole_id(String role_id) {
+		this.role_id = role_id;
 	}
 
 	

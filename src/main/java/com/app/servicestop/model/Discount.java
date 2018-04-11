@@ -3,7 +3,7 @@ package com.app.servicestop.model;
 import java.util.Date;
 
 /**
- * 咨询问答
+ * 
  * 
  * @author 冉玉琦
  * @date 2018年3月5日

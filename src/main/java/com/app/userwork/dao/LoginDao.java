@@ -64,8 +64,8 @@ public class LoginDao {
 		namedParameterJdbcTemplate.update(sql,paramSource, keyHolder, new String[]{"user_id"});
 		int user_id =keyHolder.getKey().intValue();
 		if(user_id != 0){
-			String sql1 = "insert into bns_point (user_id,add_point,reduce_point,create_cd)";
-			sql1 += " values("+user_id+",0,0,"+user_id+")";
+			String sql1 = "insert into bns_point (user_id,create_cd)";
+			sql1 += " values("+user_id+","+user_id+")";
 			jdbcTemplate.update(sql1);
 			String sql2 = "insert into t_sys_user_role (user_id,role_id)";
 			sql2 += " values("+user_id+",1)";

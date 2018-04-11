@@ -43,7 +43,7 @@ public class PartySingleService {
 		
 		
 		if(StringUtil.isNotNullOrEmpty(partySingle.getContent_img())){
-			String filename = "/"+DateUtil.getShortSystemTime()+".jpg";
+			String filename = "/"+StringUtil.creadImgName(DateUtil.getShortSystemTime())+".jpg";
 			boolean flag = ImgFile.GenerateImage(partySingle.getContent_img(),filepath ,filename );
 			if (flag) {
 				partySingle.setContent_img(ConstantUtil.weburl+filepath+filename);
@@ -52,7 +52,7 @@ public class PartySingleService {
 			}
 		}
 		if(StringUtil.isNotNullOrEmpty(partySingle.getImg1())){
-			String filename1 = "/"+DateUtil.getShortSystemTime()+"1.jpg";
+			String filename1 = "/"+StringUtil.creadImgName(DateUtil.getShortSystemTime())+"1.jpg";
 			boolean flag1 = ImgFile.GenerateImage(partySingle.getImg1(),filepath ,filename1 );
 			if (flag1) {
 				partySingle.setImg1(ConstantUtil.weburl+filepath+filename1);
@@ -61,7 +61,7 @@ public class PartySingleService {
 			}
 		}
 		if(StringUtil.isNotNullOrEmpty(partySingle.getImg2())){
-			String filename2 = "/"+DateUtil.getShortSystemTime()+"2.jpg";
+			String filename2 = "/"+StringUtil.creadImgName(DateUtil.getShortSystemTime())+"2.jpg";
 			boolean flag2 = ImgFile.GenerateImage(partySingle.getImg2(),filepath ,filename2 );
 			if (flag2) {
 				partySingle.setImg2(ConstantUtil.weburl+filepath+filename2);
@@ -70,7 +70,7 @@ public class PartySingleService {
 			}
 		}
 		if(StringUtil.isNotNullOrEmpty(partySingle.getImg3())){
-			String filename3 = "/"+DateUtil.getShortSystemTime()+"3.jpg";
+			String filename3 = "/"+StringUtil.creadImgName(DateUtil.getShortSystemTime())+"3.jpg";
 			boolean flag3 = ImgFile.GenerateImage(partySingle.getImg3(),filepath ,filename3 );
 			if (flag3) {
 				partySingle.setImg3(ConstantUtil.weburl+filepath+filename3);
@@ -79,7 +79,7 @@ public class PartySingleService {
 			}
 		}
 		if(StringUtil.isNotNullOrEmpty(partySingle.getImg4())){
-			String filename4 = "/"+DateUtil.getShortSystemTime()+"4.jpg";
+			String filename4 = "/"+StringUtil.creadImgName(DateUtil.getShortSystemTime())+"4.jpg";
 			boolean flag4 = ImgFile.GenerateImage(partySingle.getImg4(),filepath ,filename4 );
 			if (flag4) {
 				partySingle.setImg4(ConstantUtil.weburl+filepath+filename4);
@@ -88,7 +88,7 @@ public class PartySingleService {
 			}
 		}
 		if(StringUtil.isNotNullOrEmpty(partySingle.getImg5())){
-			String filename5 = "/"+DateUtil.getShortSystemTime()+"5.jpg";
+			String filename5 = "/"+StringUtil.creadImgName(DateUtil.getShortSystemTime())+"5.jpg";
 			boolean flag5 = ImgFile.GenerateImage(partySingle.getImg5(),filepath ,filename5 );
 			if (flag5) {
 				partySingle.setImg5(ConstantUtil.weburl+filepath+filename5);

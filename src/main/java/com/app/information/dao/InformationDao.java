@@ -45,8 +45,17 @@ public class InformationDao {
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public information get(String user_id,String list_id) {
-		String sql = "select t.*,(select count(*) from bns_news_like a where a.news_id = t.news_id and a.create_cd = ?) as isLike from bns_news t where t.news_id=? ";
-		Object[] params = new Object[] { user_id,list_id };
+		Object[] params = null;
+		String sql = "";
+		if(user_id == null||user_id.equals("")){
+			sql = "select t.* from bns_news t where t.news_id=? ";
+			params = new Object[] { list_id };
+			
+		}else{
+			sql = "select t.*,(select count(*) from bns_news_like a where a.news_id = t.news_id and a.create_cd = ?) as isLike from bns_news t where t.news_id=? ";
+			params = new Object[] { user_id,list_id };
+			
+		}
 		List<information> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper(information.class));
 		if (list.size() > 0)
 			return list.get(0);

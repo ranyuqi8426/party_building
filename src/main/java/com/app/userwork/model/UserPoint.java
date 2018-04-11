@@ -2,11 +2,11 @@ package com.app.userwork.model;
 
 import java.util.Date;
 
-public class UserPoint {
+public class UserPoint extends UserInfo{
 	private int point_id;// 主键
 	private int user_id;// 用户id
-	private String add_point;// 获得积分
-	private String reduce_point;// 使用积分
+	private int add_point;// 获得积分
+	private int reduce_point;// 使用积分
 	private String create_cd;// 创建人
 	private Date create_time;// 创建时间
 	public int getPoint_id() {
@@ -21,16 +21,16 @@ public class UserPoint {
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
-	public String getAdd_point() {
+	public int getAdd_point() {
 		return add_point;
 	}
-	public void setAdd_point(String add_point) {
+	public void setAdd_point(int add_point) {
 		this.add_point = add_point;
 	}
-	public String getReduce_point() {
+	public int getReduce_point() {
 		return reduce_point;
 	}
-	public void setReduce_point(String reduce_point) {
+	public void setReduce_point(int reduce_point) {
 		this.reduce_point = reduce_point;
 	}
 	public String getCreate_cd() {

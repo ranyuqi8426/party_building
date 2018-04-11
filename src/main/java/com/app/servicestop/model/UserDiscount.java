@@ -2,7 +2,7 @@ package com.app.servicestop.model;
 
 import java.util.Date;
 
-public class UserDiscount {
+public class UserDiscount extends Discount{
 	private int user_discount_id;// 主键
 	private int user_id;// 用户id
 	private int discount_id;// 优惠券id
@@ -11,6 +11,10 @@ public class UserDiscount {
 	private String operation_status;// 兑换状态 0未兑换1已兑换
 	private String create_cd;// 创建人
 	private Date create_time;// 创建时间
+	
+	
+	private String user_name;//用户翻译字段
+	
 	public int getUser_discount_id() {
 		return user_discount_id;
 	}
@@ -58,6 +62,12 @@ public class UserDiscount {
 	}
 	public void setCreate_time(Date create_time) {
 		this.create_time = create_time;
+	}
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
 }

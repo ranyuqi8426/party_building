@@ -24,8 +24,8 @@ public class UserSignService {
 	 * @return
 	 */
 	public int add(int user_id) {
-		String startDate = DateUtil.dateToString(new Date(), "yyyy-MM-dd");
-		String endDate = DateUtil.dateToString(new Date(), "yyyy-MM-dd");
+		String startDate =""; //DateUtil.dateToString(new Date(), "yyyy-MM-dd");
+		String endDate = "";//DateUtil.dateToString(new Date(), "yyyy-MM-dd");
 		int listNum = userSignDao.list(startDate,endDate,user_id).size();
 		if(listNum>0){
 			return 0;

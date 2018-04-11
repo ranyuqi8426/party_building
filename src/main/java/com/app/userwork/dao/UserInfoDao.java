@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.app.userwork.model.UserInfo;
+import com.app.userwork.vo.UserInfoVO;
 import com.app.util.string.StringUtil;
 
 
@@ -28,7 +29,7 @@ public class UserInfoDao {
 	 * @return
 	 */
 	public UserInfo userInfoForId(int user_id) {
-		String sql = "select * from t_sys_user where user_id=?  ";
+		String sql = "select * from t_sys_user t left join t_sys_user_role a on a.user_id = t.user_id where t.user_id=?  ";
 		Object[] params = new Object[] { user_id };
 		List<UserInfo> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(UserInfo.class));
 		if(list != null && list.size()>0){
@@ -45,13 +46,13 @@ public class UserInfoDao {
 	 * @return
 	 */
 	public List<UserInfo> userInfoForName(String user_cd) {
-		String sql = "select * from t_sys_user where user_cd=? ";
+		String sql = "select * from t_sys_user t left join t_sys_user_role a on a.user_id = t.user_id where user_cd=? ";
 		Object[] params = new Object[] { user_cd };
 		List<UserInfo> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(UserInfo.class));
 		return list;
 	}
 	/**
-	 * 获取用户信息 微信QQ
+	 * 获取用户信息  微信QQ
 	 * @author 冉玉琦
 	 * @date 2018年3月1日
 	 * @param username
@@ -59,7 +60,7 @@ public class UserInfoDao {
 	 * @return
 	 */
 	public List<UserInfo> userInfoForOpenId(String user_tencent) {
-		String sql = "select * from t_sys_user where user_tencent=? ";
+		String sql = "select * from t_sys_user t left join t_sys_user_role a on a.user_id = t.user_id where user_tencent=? ";
 		Object[] params = new Object[] { user_tencent };
 		List<UserInfo> list = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(UserInfo.class));
 		return list;
@@ -119,6 +120,23 @@ public class UserInfoDao {
 			return userInfoForId(userInfo.getUser_id());
 		 }
 		 return null;
+	}
+	/**
+	 * 修改密码
+	 * @author 冉玉琦
+	 * @date 2018年3月3日
+	 * @param userInfo
+	 * @return
+	 */
+	public int updatePWD(UserInfoVO userInfo) {
+		NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
+		String sql = " update t_sys_user set ";
+				if (StringUtil.isNotNullOrEmpty(userInfo.getNewpsd())) {
+					sql += " user_password = :newpsd";
+				}
+				sql += " where user_id = :user_id and user_password = :oldpsd ";
+		SqlParameterSource paramSource = new BeanPropertySqlParameterSource(userInfo);
+		 return namedParameterJdbcTemplate.update(sql, paramSource);
 	}
 
 

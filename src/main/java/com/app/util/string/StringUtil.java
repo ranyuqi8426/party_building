@@ -670,6 +670,10 @@ public class StringUtil {
         }
         return val;
     }
+    public static String creadImgName(String val) {
+		return val+getItemID(4);
+		
+	}
 	public static void main(String[] args) {
 		System.out.println(getItemID(4));
 	}

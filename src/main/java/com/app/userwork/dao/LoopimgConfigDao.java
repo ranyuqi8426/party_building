@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.app.userwork.model.BnsFloor;
 import com.app.userwork.model.LoopimgConfig;
 
 

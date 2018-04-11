@@ -3,7 +3,6 @@ package com.app.userwork.service;
 
 import java.util.List;
 
-import org.aspectj.weaver.ast.Var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,6 +59,7 @@ public class LoginService {
 			rtnUserInfo.setHome_address(userInfo.getHome_address());
 			rtnUserInfo.setUser_tencent(userInfo.getUser_tencent());
 			userInfoDao.updateUserInfo(rtnUserInfo);
+			rtnUserInfo = userinfolist.get(0);
 		}else {
 			rtnUserInfo.setHead_img_url(userInfo.getHead_img_url());
 			rtnUserInfo.setUser_name(userInfo.getUser_name());
@@ -67,7 +67,7 @@ public class LoginService {
 			rtnUserInfo.setHome_address(userInfo.getHome_address());
 			rtnUserInfo.setUser_tencent(userInfo.getUser_tencent());
 			int user_id = loginDao.add(rtnUserInfo);
-			rtnUserInfo.setUser_id(user_id);
+			rtnUserInfo = userInfoDao.userInfoForId(user_id);
 		}
 		//增加登录日志  
 		addLoginLog(rtnUserInfo.getUser_id(),ip,LoginType); 
